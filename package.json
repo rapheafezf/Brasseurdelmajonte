@@ -1,0 +1,18 @@
+{
+  "name": "brasseurs-de-la-jonte",
+  "version": "1.0.0",
+  "description": "Site vitrine moderne de la brasserie artisanale Les Brasseurs de la Jonte",
+  "main": "index.html",
+  "scripts": {
+    "dev": "./start.sh",
+    "start": "./start.sh"
+  },
+  "keywords": [
+    "brasserie",
+    "biere-artisanale",
+    "limonade-bio",
+    "lozere"
+  ],
+  "author": "Les Brasseurs de la Jonte",
+  "license": "ISC"
+}

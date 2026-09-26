@@ -936,155 +936,270 @@
       line-height: 1.65;
     }
 
-    /* Grille alignée des 5 Bières */
-    .cards-grid-5 {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.25rem;
-      max-width: 1440px;
-      margin: 0 auto;
+    /* ==========================================================================
+       CATALOGUE GRID & CARD REDESIGN (AESTHETIC & LEGIBILITY PERFECTION)
+       ========================================================================== */
+    .section-catalog {
+      scroll-margin-top: 100px;
     }
 
-    @media (max-width: 1200px) {
-      .cards-grid-5 {
-        display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 1.5rem;
-        scrollbar-width: thin;
-      }
-      .cards-grid-5 .card-item {
-        flex: 0 0 260px;
-        scroll-snap-align: start;
-      }
-    }
-
-    /* Grille alignée des 9 Limonades */
+    .cards-grid-5,
     .cards-grid-limonades {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1.2rem;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding-bottom: 1.5rem;
-      scrollbar-width: thin;
-    }
-
-    .cards-grid-limonades .card-item {
-      flex: 0 0 240px;
-      min-height: 460px;
-      padding: 1.8rem;
-      scroll-snap-align: start;
-    }
-
-    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.8rem;
-      max-width: 1360px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    @media (max-width: 1040px) {
-      .cards-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .cards-grid { grid-template-columns: 1fr; }
+    @media (min-width: 1200px) {
+      .cards-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .cards-grid-5 .card-item:nth-child(4) {
+        grid-column: 1 / 2;
+        margin-left: auto;
+        width: 100%;
+      }
+      .cards-grid-5 .card-item:nth-child(5) {
+        grid-column: 2 / 3;
+        margin-right: auto;
+        width: 100%;
+      }
+      .cards-grid-limonades {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
+    @media (max-width: 1080px) and (min-width: 680px) {
+      .cards-grid-5,
+      .cards-grid-limonades {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 679px) {
+      .cards-grid-5,
+      .cards-grid-limonades {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CARD CONTAINER */
     .card-item {
-      border-radius: 28px;
-      padding: 2.4rem;
-      position: relative;
+      background: #14141B;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       overflow: hidden;
-      min-height: 500px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      color: var(--color-white);
-      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s ease;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+      transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease, border-color 0.35s ease;
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
     }
 
     .card-item:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+      border-color: rgba(255, 255, 255, 0.22);
     }
 
-    .card-meta-top {
+    /* 1. VISUAL SHOWCASE STAGE (Dedicated bottle zone, ZERO text overlap!) */
+    .card-visual-stage {
       position: relative;
-      z-index: 3;
+      height: 270px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    .card-category-pill {
+    .card-badges-header {
+      position: absolute;
+      top: 1rem;
+      left: 1.2rem;
+      right: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .card-type-badge {
       font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 0.4rem;
-      opacity: 0.85;
+      padding: 0.35rem 0.8rem;
+      border-radius: 50vw;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .card-alcohol-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 50vw;
+      background: rgba(234, 179, 8, 0.22);
+      border: 1px solid rgba(234, 179, 8, 0.45);
+      color: #FACC15;
+    }
+
+    .card-bottle-glow {
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      filter: blur(45px);
+      opacity: 0.65;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .card-item:hover .card-bottle-glow {
+      opacity: 0.95;
+      transform: scale(1.15);
+    }
+
+    .card-bottle-img {
+      position: relative;
+      z-index: 3;
+      height: 220px;
+      max-height: 220px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.65));
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .card-item:hover .card-bottle-img {
+      transform: translateY(-8px) scale(1.06);
+    }
+
+    .card-bottle-pedestal {
+      position: absolute;
+      bottom: 12px;
+      width: 130px;
+      height: 14px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.75) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    /* 2. CARD INFO BODY (High contrast, clean typography, 100% readable) */
+    .card-info-body {
+      padding: 1.6rem 1.8rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background: linear-gradient(180deg, rgba(20, 20, 28, 0.7) 0%, rgba(14, 14, 20, 0.98) 100%);
+      color: #fff;
+    }
+
+    .card-headline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
     }
 
     .card-product-name {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+      font-size: 1.6rem;
       font-weight: 800;
       text-transform: uppercase;
-      line-height: 1.05;
       letter-spacing: -0.01em;
+      color: #fff;
+      line-height: 1.1;
     }
 
-    .card-bottle-img {
-      position: absolute;
-      right: 4%;
-      bottom: 8%;
-      height: 72%;
-      max-height: 380px;
-      width: auto;
-      object-fit: contain;
-      z-index: 2;
-      transition: transform 0.5s var(--ease-spring);
-      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
-    }
-
-    .card-item:hover .card-bottle-img {
-      transform: translateY(-12px) rotate(3deg) scale(1.06);
-    }
-
-    .card-meta-bottom {
-      position: relative;
-      z-index: 3;
-      max-width: 60%;
-    }
-
-    .card-tasting-text {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      opacity: 0.9;
-      margin-bottom: 1.2rem;
-    }
-
-    .card-action-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .card-format-tag {
       font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 0.55rem 1.2rem;
-      border-radius: 50vw;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(8px);
-      color: var(--color-white);
-      transition: background 0.2s;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.05em;
     }
 
-    .card-item:hover .card-action-btn {
+    /* Flavor tags row */
+    .card-flavor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .flavor-tag {
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .flavor-tag.is-gold {
+      background: rgba(234, 179, 8, 0.14);
+      border-color: rgba(234, 179, 8, 0.35);
+      color: #FACC15;
+    }
+
+    /* Tasting notes description */
+    .card-tasting-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    /* CTA button */
+    .card-action-bar {
+      margin-top: auto;
+    }
+
+    .card-explore-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .card-item:hover .card-explore-btn {
       background: var(--color-white);
       color: var(--color-dark);
+      border-color: var(--color-white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-explore-btn .btn-arrow {
+      transition: transform 0.25s ease;
+    }
+
+    .card-item:hover .card-explore-btn .btn-arrow {
+      transform: translateX(4px);
     }
 
     /* ==========================================================================
@@ -1653,63 +1768,96 @@
     .section-tireuses {
       padding: 6.5rem 5%;
       background: var(--color-cream);
+      scroll-margin-top: 100px;
     }
-    .tireuse-card-main {
-      max-width: 1220px;
-      margin: 0 auto;
+    .tireuses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      max-width: 1280px;
+      margin: 0 auto 3rem;
+    }
+    @media (max-width: 960px) {
+      .tireuses-grid { grid-template-columns: 1fr; }
+    }
+    .tireuse-info-card {
       background: var(--color-white);
-      border-radius: 36px;
-      padding: clamp(2.5rem, 5vw, 4.5rem);
-      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
+      border-radius: 24px;
+      padding: 2.2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
     }
-    @media (max-width: 920px) {
-      .tireuse-card-main { grid-template-columns: 1fr; }
+    .tireuse-info-card:hover {
+      transform: translateY(-6px);
     }
-    .tireuse-perks-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-      margin: 2rem 0;
-    }
-    .perk-item {
-      padding: 1rem 1.2rem;
-      background: var(--color-cream);
-      border-radius: 18px;
-    }
-    .perk-item strong {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 0.95rem;
+    .tireuse-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
       text-transform: uppercase;
-      margin-bottom: 0.25rem;
+      letter-spacing: 0.1em;
       color: #9A3412;
+      background: rgba(154, 52, 18, 0.08);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50vw;
+      margin-bottom: 1rem;
     }
-    .perk-item span {
-      font-size: 0.85rem;
+    .tireuse-info-card h3 {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      color: var(--color-dark);
+      line-height: 1.2;
+    }
+    .tireuse-info-card p {
+      font-size: 0.92rem;
+      line-height: 1.6;
       color: var(--color-muted);
-      line-height: 1.45;
-      display: block;
+    }
+    .tireuses-cta-banner {
+      background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     /* SECTION AVIS / TÉMOIGNAGES */
     .section-reviews {
       padding: 6.5rem 5%;
       background: var(--color-white);
+      scroll-margin-top: 100px;
+    }
+    .reviews-badge-trust {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(234, 179, 8, 0.15);
+      color: #854D0E;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50vw;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(234, 179, 8, 0.3);
     }
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.8rem;
       max-width: 1280px;
-      margin: 0 auto;
+      margin: 2.5rem auto 0;
     }
     @media (max-width: 900px) {
       .reviews-grid { grid-template-columns: 1fr; }
     }
+    .review-box,
     .review-card {
       background: var(--color-cream);
       border-radius: 24px;
@@ -1720,6 +1868,7 @@
       border: 1px solid rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
     }
+    .review-box:hover,
     .review-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
@@ -2227,92 +2376,157 @@
 
     <div class="cards-grid-5" id="bieresCatalogGrid">
       <!-- 1. Brimbelle -->
-      <div class="card-item" data-bieres-cat="fruitee" style="background: linear-gradient(145deg, #361543 0%, #86198F 100%);" onclick="focusBottle('brimbelle')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Blanche Fruité Bio</div>
-          <h3 class="card-product-name">Brimbelle</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Bio Certifié</span>
-            <span class="card-spec-tag">5.0% vol.</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-bieres-cat="fruitee" onclick="focusBottle('brimbelle')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(134, 25, 143, 0.45) 0%, rgba(20, 15, 28, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Bière Blanche Bio</span>
+            <span class="card-alcohol-badge">5.0% vol.</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(162, 28, 175, 0.65);"></div>
+          <img src="assets/bottles/brimbelle.png" alt="Brimbelle" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/brimbelle.png" alt="Brimbelle" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Blanche à la myrtille, houblons Nugget & Barbe Rouge, peu sucrée, sans colorant, fruitée avec légère amertume et notes boisées, très désaltérante.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Brimbelle</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🫐 Myrtille sauvage</span>
+            <span class="flavor-tag">🌿 Barbe Rouge</span>
+            <span class="flavor-tag is-gold">✦ 100% Bio</span>
+          </div>
+          <p class="card-tasting-text">Blanche à la myrtille et houblons Barbe Rouge & Nugget. Robe pourpre naturelle, peu sucrée, fruitée avec une délicate amertume et des notes boisées très désaltérantes.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans la rangée 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 2. Tantaravel -->
-      <div class="card-item" data-bieres-cat="houblon" style="background: linear-gradient(145deg, #9A3412 0%, #EA580C 100%);" onclick="focusBottle('tantaravel')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">IPA Single Hop</div>
-          <h3 class="card-product-name">Tantaravel</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Single Hop</span>
-            <span class="card-spec-tag">6.2% vol.</span>
-            <span class="card-spec-tag">Amertume Franche</span>
+      <div class="card-item" data-bieres-cat="houblon" onclick="focusBottle('tantaravel')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(234, 88, 12, 0.45) 0%, rgba(30, 15, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">IPA Single Hop</span>
+            <span class="card-alcohol-badge">6.2% vol.</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(234, 88, 12, 0.65);"></div>
+          <img src="assets/bottles/tantaravel.png" alt="Tantaravel" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/tantaravel.png" alt="Tantaravel" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">IPA "single hop", nez frais et généreux, robe jaune-orangé, mousse blanche dense, amertume marquée et fruitée.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Tantaravel</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌿 Single Hop</span>
+            <span class="flavor-tag">🍊 Notes Résineuses</span>
+            <span class="flavor-tag is-gold">✦ Amertume Franche</span>
+          </div>
+          <p class="card-tasting-text">IPA pure brassée avec une variété unique de houblon. Nez frais et généreux, robe jaune-orangé éclatante, mousse dense et amertume noble intensément fruitée.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans la rangée 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 3. Triple Bio -->
-      <div class="card-item" data-bieres-cat="forte" style="background: linear-gradient(145deg, #78350F 0%, #D97706 100%);" onclick="focusBottle('triple_bio')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Bière Blonde Forte Bio</div>
-          <h3 class="card-product-name">Triple Bio</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Triple Malt</span>
-            <span class="card-spec-tag">8.5% vol.</span>
-            <span class="card-spec-tag">Rondeur & Force</span>
+      <div class="card-item" data-bieres-cat="forte" onclick="focusBottle('triple_bio')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(217, 119, 6, 0.45) 0%, rgba(30, 20, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Blonde Forte Bio</span>
+            <span class="card-alcohol-badge">8.5% vol.</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(217, 119, 6, 0.65);"></div>
+          <img src="assets/bottles/triple_bio.png" alt="Triple Bio" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/triple_bio.png" alt="Triple Bio" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Bio, houblons Perle et Azacca, généreusement maltée, belle rondeur en bouche.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Triple Bio</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌾 Triple Malt Bio</span>
+            <span class="flavor-tag">✨ Perle & Azacca</span>
+            <span class="flavor-tag is-gold">✦ Rondeur en Bouche</span>
+          </div>
+          <p class="card-tasting-text">Généreusement maltée et sublimée par les houblons Perle et Azacca. Une bière de dégustation chaleureuse à la rondeur ample, aux notes céréalières dorées et longue finale.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans la rangée 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 4. Minim'ale -->
-      <div class="card-item" data-bieres-cat="sans-alcool" style="background: linear-gradient(145deg, #14532D 0%, #65A30D 100%);" onclick="focusBottle('minim_ale')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Bière Sans Alcool Bio</div>
-          <h3 class="card-product-name">Minim'ale</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ 100% Plaisir Bio</span>
-            <span class="card-spec-tag">< 0.5% vol.</span>
-            <span class="card-spec-tag">Houblonnée</span>
+      <div class="card-item" data-bieres-cat="sans-alcool" onclick="focusBottle('minim_ale')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(101, 163, 13, 0.45) 0%, rgba(15, 25, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Sans Alcool Bio</span>
+            <span class="card-alcohol-badge">< 0.5% vol.</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(101, 163, 13, 0.65);"></div>
+          <img src="assets/bottles/minim_ale.png" alt="Minim'ale" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/minim_ale.png" alt="Minim'ale" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Blonde bio sans alcool, finement houblonnée, attaque céréale et finale citronnée.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Minim'ale</h3>
+            <span class="card-format-tag">33cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌿 Finement Houblonnée</span>
+            <span class="flavor-tag">🍋 Finale Citronnée</span>
+            <span class="flavor-tag is-gold">✦ 100% Plaisir Bio</span>
+          </div>
+          <p class="card-tasting-text">Blonde artisanale bio sans alcool. Attaque franche sur la céréale maltée et finale vive délicatement citronnée. Tout le caractère d'une vraie bière artisanale sans compromis.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans la rangée 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 5. La Cerise sur le Piment -->
-      <div class="card-item" data-bieres-cat="special" style="background: linear-gradient(145deg, #831843 0%, #E11D48 100%);" onclick="focusBottle('cerise_piment')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Fûts de Chêne</div>
-          <h3 class="card-product-name">La Cerise</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Fûts de Chêne</span>
-            <span class="card-spec-tag">7.0% vol.</span>
-            <span class="card-spec-tag">Édition Limitée</span>
+      <div class="card-item" data-bieres-cat="special" onclick="focusBottle('cerise_piment')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(225, 29, 72, 0.45) 0%, rgba(30, 10, 20, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Humeurs des Brasseurs</span>
+            <span class="card-alcohol-badge">7.0% vol.</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(225, 29, 72, 0.65);"></div>
+          <img src="assets/bottles/cerise_piment.png" alt="La Cerise sur le Piment" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/cerise_piment.png" alt="La Cerise sur le Piment" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Collection "Humeurs des Brasseurs", bières éphémères vieillies en fûts de chêne (rhum, whisky, calvados).</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">La Cerise</h3>
+            <span class="card-format-tag">Édition Limitée</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🪵 Fûts de Chêne</span>
+            <span class="flavor-tag">🍒 Cerise Noire</span>
+            <span class="flavor-tag is-gold">✦ Brassin Éphémère</span>
+          </div>
+          <p class="card-tasting-text">Issue de notre collection "Humeurs des Brasseurs". Bière d'exception vieillie de longs mois en fûts de chêne (rhum, whisky, calvados) aux nuances boisées et tanniques fascinantes.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -2339,164 +2553,281 @@
 
     <div class="cards-grid-limonades" id="limonadesCatalogGrid">
       <!-- 1. Citron -->
-      <div class="card-item" data-limo-cat="agrumes-epices" style="background: linear-gradient(145deg, #854D0E 0%, #EAB308 100%);" onclick="focusBottle('citron')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Citron</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
-            <span class="card-spec-tag">La rafraîchissante</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="agrumes-epices" onclick="focusBottle('citron')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(234, 179, 8, 0.4) 0%, rgba(30, 25, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Pur Jus</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(234, 179, 8, 0.6);"></div>
+          <img src="assets/bottles/citron.png" alt="Limonade Citron" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/citron.png" alt="Citron" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Citron bio — acidulée, pétillante et ultra désaltérante. La saveur classique revisitée avec pureté.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Citron</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🍋 Citron Pressé Bio</span>
+            <span class="flavor-tag">⚡ Acidulée</span>
+            <span class="flavor-tag is-gold">✦ La Rafraîchissante</span>
+          </div>
+          <p class="card-tasting-text">Recette classique réinventée avec du pur jus de citron biologique. Équilibre parfait entre acidité tonique et douceur naturelle pour une désaltération immédiate.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 2. Myrtille -->
-      <div class="card-item" data-limo-cat="fruits" style="background: linear-gradient(145deg, #1E1B4B 0%, #4F46E5 100%);" onclick="focusBottle('myrtille')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Myrtille</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
-            <span class="card-spec-tag">L'originale</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="fruits" onclick="focusBottle('myrtille')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(79, 70, 229, 0.4) 0%, rgba(15, 15, 30, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Terroir</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(79, 70, 229, 0.6);"></div>
+          <img src="assets/bottles/myrtille.png" alt="Limonade Myrtille" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/myrtille.png" alt="Myrtille" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Myrtille sauvage — saveur emblématique de Lozère, fruitée, boisée et gourmande.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Myrtille</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🫐 Fruits des Sous-Bois</span>
+            <span class="flavor-tag">🌲 Lozère Sauvage</span>
+            <span class="flavor-tag is-gold">✦ L'Originale</span>
+          </div>
+          <p class="card-tasting-text">Le goût sauvage et authentique des myrtilles cévenoles sous une fine pétillance. Une robe grenat intense et un parfum gourmand très apprécié petits et grands.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 3. Miel -->
-      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #451A03 0%, #B45309 100%);" onclick="focusBottle('miel')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Miel</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Miel Cévenol</span>
-            <span class="card-spec-tag">La cévenole</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="plantes" onclick="focusBottle('miel')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(180, 83, 9, 0.4) 0%, rgba(25, 18, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Cévennes</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(180, 83, 9, 0.6);"></div>
+          <img src="assets/bottles/miel.png" alt="Limonade Miel" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/miel.png" alt="Miel de châtaignier" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Miel de châtaignier — douceur boisée et rondeur naturelle du terroir des Cévennes.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Miel</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🍯 Miel de Châtaignier</span>
+            <span class="flavor-tag">🍂 Notes Boisées</span>
+            <span class="flavor-tag is-gold">✦ La Cévenole</span>
+          </div>
+          <p class="card-tasting-text">Élaborée avec du miel de châtaignier récolté par des apiculteurs locaux en Lozère. Rondeur veloutée, bouquet aromatique chaud et délicate touche caramélisée.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 4. Abricot -->
-      <div class="card-item" data-limo-cat="fruits" style="background: linear-gradient(145deg, #9A3412 0%, #F97316 100%);" onclick="focusBottle('abricot')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Abricot</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
-            <span class="card-spec-tag">La fruitée</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="fruits" onclick="focusBottle('abricot')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(249, 115, 22, 0.4) 0%, rgba(30, 18, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Solaire</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(249, 115, 22, 0.6);"></div>
+          <img src="assets/bottles/abricot.png" alt="Limonade Abricot" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/abricot.png" alt="Abricot" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Abricot bio — texture veloutée, parfum fruité généreux gorgé de soleil.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Abricot</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🍑 Purée Abricot Bio</span>
+            <span class="flavor-tag">☀️ Gorgée de Soleil</span>
+            <span class="flavor-tag is-gold">✦ La Fruitée</span>
+          </div>
+          <p class="card-tasting-text">Véritable nectar d'abricot bio marié à une eau gazéifiée fine et légère. Texture soyeuse, parfum sucré naturel et rondeur en bouche irrésistible.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 5. Sureau -->
-      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #064E3B 0%, #10B981 100%);" onclick="focusBottle('sureau')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Sureau</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Fleurs Cueillies</span>
-            <span class="card-spec-tag">La fleurie</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="plantes" onclick="focusBottle('sureau')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(16, 185, 129, 0.4) 0%, rgba(10, 25, 20, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Cueillette</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(16, 185, 129, 0.6);"></div>
+          <img src="assets/bottles/sureau.png" alt="Limonade Sureau" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/sureau.png" alt="Sureau" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Fleurs de sureau — infusion florale délicate et fraîcheur printanière envoûtante.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Sureau</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌸 Fleurs Cueillies</span>
+            <span class="flavor-tag">🌿 Parfum Subtil</span>
+            <span class="flavor-tag is-gold">✦ La Fleurie</span>
+          </div>
+          <p class="card-tasting-text">Infusion délicate de fleurs de sureau cueillies à maturité dans nos vallées. Une fraîcheur printanière envoûtante, aérienne et subtilement acidulée.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 6. Ginger Beer -->
-      <div class="card-item" data-limo-cat="agrumes-epices" style="background: linear-gradient(145deg, #713F12 0%, #CA8A04 100%);" onclick="focusBottle('ginger')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Gingembre</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Ginger Beer</span>
-            <span class="card-spec-tag">Peps Épicé</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="agrumes-epices" onclick="focusBottle('ginger')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(202, 138, 4, 0.4) 0%, rgba(30, 22, 10, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Ginger Beer</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(202, 138, 4, 0.6);"></div>
+          <img src="assets/bottles/ginger.png" alt="Limonade Gingembre" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/ginger.png" alt="Ginger Beer" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Gingembre bio — épicée, piquante et vivifiante avec un peps revigorant.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Gingembre</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🫚 Ginger Pressé Bio</span>
+            <span class="flavor-tag">💥 Peps Épicé</span>
+            <span class="flavor-tag is-gold">✦ La Ginger Beer</span>
+          </div>
+          <p class="card-tasting-text">Véritable jus de gingembre biologique pressé à froid. Une attaque vive et piquante suivie d'une fraîcheur revigorante qui réveille les papilles.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 7. Peppermint -->
-      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #042F2E 0%, #0D9488 100%);" onclick="focusBottle('menthe')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Menthe</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Menthe Poivrée</span>
-            <span class="card-spec-tag">La peppermint</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="plantes" onclick="focusBottle('menthe')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(13, 148, 136, 0.4) 0%, rgba(10, 25, 25, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Frisson Glacé</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(13, 148, 136, 0.6);"></div>
+          <img src="assets/bottles/menthe.png" alt="Limonade Menthe" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/menthe.png" alt="Menthe poivrée" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Menthe poivrée — frisson intense de fraîcheur végétale, parfaite glacée en plein été.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Menthe</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌱 Menthe Poivrée Bio</span>
+            <span class="flavor-tag">❄️ Effet Rafraîchissant</span>
+            <span class="flavor-tag is-gold">✦ La Peppermint</span>
+          </div>
+          <p class="card-tasting-text">Infusion naturelle de menthe poivrée biologique. Une vague de fraîcheur végétale saisissante, ultra revigorante servie très fraîche avec une rondelle de citron.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 8. Thé Pêche -->
-      <div class="card-item" data-limo-cat="the-cola" style="background: linear-gradient(145deg, #7C2D12 0%, #FB923C 100%);" onclick="focusBottle('the_peche')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Thé Pêche</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Vraie Infusion</span>
-            <span class="card-spec-tag">Le glacé</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="the-cola" onclick="focusBottle('the_peche')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(251, 146, 60, 0.4) 0%, rgba(30, 18, 12, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Glacée</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(251, 146, 60, 0.6);"></div>
+          <img src="assets/bottles/the_peche.png" alt="Limonade Thé Pêche" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/the_peche.png" alt="Thé pêche" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Thé pêche — infusion naturelle de thé bio et nectar de pêche velouté, sans sucres superflus.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Thé Pêche</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🍵 Vraie Infusion Bio</span>
+            <span class="flavor-tag">🍑 Nectar de Pêche</span>
+            <span class="flavor-tag is-gold">✦ Le Glacé</span>
+          </div>
+          <p class="card-tasting-text">Infusion lente de thé noir bio délicatement assemblée avec du pur jus de pêche velouté. Une boisson désaltérante équilibrée et peu sucrée.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- 9. Cola -->
-      <div class="card-item" data-limo-cat="the-cola" style="background: linear-gradient(145deg, #18181B 0%, #52525B 100%);" onclick="focusBottle('cola')">
-        <div class="card-meta-top">
-          <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Cola</h3>
-          <div class="card-specs-row">
-            <span class="card-spec-tag is-gold">✦ Artisanal Bio</span>
-            <span class="card-spec-tag">Le revisité</span>
-            <span class="card-spec-tag">33cl & 75cl</span>
+      <div class="card-item" data-limo-cat="the-cola" onclick="focusBottle('cola')">
+        <div class="card-visual-stage" style="background: radial-gradient(circle at 50% 60%, rgba(113, 113, 122, 0.4) 0%, rgba(20, 20, 25, 0.95) 75%);">
+          <div class="card-badges-header">
+            <span class="card-type-badge">Limonade Bio</span>
+            <span class="card-alcohol-badge">0.0% • Artisanal</span>
           </div>
+          <div class="card-bottle-glow" style="background: rgba(113, 113, 122, 0.6);"></div>
+          <img src="assets/bottles/cola.png" alt="Limonade Cola" class="card-bottle-img">
+          <div class="card-bottle-pedestal"></div>
         </div>
-        <img src="assets/bottles/cola.png" alt="Cola artisanal" class="card-bottle-img">
-        <div class="card-meta-bottom">
-          <p class="card-tasting-text">Cola artisanal — recette naturelle réinventée avec finesse, aux épices douces et bulles légères.</p>
-          <div class="card-action-btn">Voir dans la rangée ✦</div>
+        <div class="card-info-body">
+          <div class="card-headline-row">
+            <h3 class="card-product-name">Cola</h3>
+            <span class="card-format-tag">33cl & 75cl</span>
+          </div>
+          <div class="card-flavor-tags">
+            <span class="flavor-tag">🌿 Épices Douces</span>
+            <span class="flavor-tag">✨ Zéro Colorant Chimique</span>
+            <span class="flavor-tag is-gold">✦ Le Revisité</span>
+          </div>
+          <p class="card-tasting-text">Le cola réinventé par Les Brasseurs de la Jonte : arômes naturels d'agrumes, vanille et épices douces, sans colorants synthétiques ni conservateurs.</p>
+          <div class="card-action-bar">
+            <button class="card-explore-btn" type="button">
+              <span>Voir dans le Showroom 3D</span>
+              <span class="btn-arrow">✦</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -2514,35 +2845,51 @@
 
     <div class="craft-grid">
       <!-- Pilier 1 -->
-      <div class="craft-col-card">
-        <div class="craft-icon-circle">💧</div>
-        <div class="craft-step-number">01. Pureté</div>
-        <h3 class="craft-card-title">Eau de la Jonte</h3>
-        <p class="craft-card-desc">Une eau de source cévenole d'une pureté cristalline, non traitée chimiquement, filtrée naturellement par les schistes et calcaires de nos gorges sauvages.</p>
+      <div class="craft-step-card">
+        <div class="craft-step-top">
+          <span class="craft-step-num">01. PURETÉ</span>
+          <div class="craft-step-icon">💧</div>
+        </div>
+        <div>
+          <h3 class="craft-step-title">Eau de la Jonte</h3>
+          <p class="craft-step-desc">Une eau de source cévenole d'une pureté cristalline, non traitée chimiquement, filtrée naturellement par les schistes et calcaires de nos gorges sauvages.</p>
+        </div>
       </div>
 
       <!-- Pilier 2 -->
-      <div class="craft-col-card">
-        <div class="craft-icon-circle">🌾</div>
-        <div class="craft-step-number">02. Nature</div>
-        <h3 class="craft-card-title">100% Céréales Bio</h3>
-        <p class="craft-card-desc">Tous nos malts d'orge et de blé sont issus de l'agriculture biologique certifiée. Aucun additif artificiel, aucun extrait de synthèse ni conservateur.</p>
+      <div class="craft-step-card">
+        <div class="craft-step-top">
+          <span class="craft-step-num">02. NATURE</span>
+          <div class="craft-step-icon">🌾</div>
+        </div>
+        <div>
+          <h3 class="craft-step-title">100% Céréales Bio</h3>
+          <p class="craft-step-desc">Tous nos malts d'orge et de blé sont issus de l'agriculture biologique certifiée. Aucun additif artificiel, aucun extrait de synthèse ni conservateur.</p>
+        </div>
       </div>
 
       <!-- Pilier 3 -->
-      <div class="craft-col-card">
-        <div class="craft-icon-circle">🌿</div>
-        <div class="craft-step-number">03. Arômes</div>
-        <h3 class="craft-card-title">Houblons & Vrais Fruits</h3>
-        <p class="craft-card-desc">Sélection méticuleuse de houblons nobles (Perle, Azacca, Barbe Rouge, Nugget) et d'infusions végétales authentiques (fleurs de sureau, menthe poivrée, miel de châtaignier).</p>
+      <div class="craft-step-card">
+        <div class="craft-step-top">
+          <span class="craft-step-num">03. ARÔMES</span>
+          <div class="craft-step-icon">🌿</div>
+        </div>
+        <div>
+          <h3 class="craft-step-title">Houblons & Vrais Fruits</h3>
+          <p class="craft-step-desc">Sélection méticuleuse de houblons nobles (Perle, Azacca, Barbe Rouge, Nugget) et d'infusions végétales authentiques (fleurs de sureau, menthe poivrée, miel de châtaignier).</p>
+        </div>
       </div>
 
       <!-- Pilier 4 -->
-      <div class="craft-col-card">
-        <div class="craft-icon-circle">🪵</div>
-        <div class="craft-step-number">04. Patience</div>
-        <h3 class="craft-card-title">Refermentation & Fûts</h3>
-        <p class="craft-card-desc">Prise de mousse naturelle et affinage soigné en chambre chaude. Élevage précieux en vieux fûts de chêne (rhum, whisky, calvados) pour notre collection éphémère.</p>
+      <div class="craft-step-card">
+        <div class="craft-step-top">
+          <span class="craft-step-num">04. PATIENCE</span>
+          <div class="craft-step-icon">🪵</div>
+        </div>
+        <div>
+          <h3 class="craft-step-title">Refermentation & Fûts</h3>
+          <p class="craft-step-desc">Prise de mousse naturelle et affinage soigné en chambre chaude. Élevage précieux en vieux fûts de chêne (rhum, whisky, calvados) pour notre collection éphémère.</p>
+        </div>
       </div>
     </div>
   </section>

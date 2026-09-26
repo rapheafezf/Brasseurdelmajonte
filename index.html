@@ -1825,26 +1825,22 @@
       font-weight: 400;
     }
 
-    /* SÉLECTEUR D'ONGLETS SAISONS */
+    /* SÉLECTEUR D'ONGLETS SAISONS (PROPRE, SANS DÉFORMATION) */
     .season-tabs-switch {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 0.4rem;
-      border-radius: 50vw;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      gap: 0.4rem;
+      display: flex;
+      gap: 0.7rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
     .season-tab-btn {
-      padding: 0.7rem 1.4rem;
+      padding: 0.75rem 1.45rem;
       border-radius: 50vw;
       font-size: 0.84rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border: 1px solid transparent;
-      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
       color: #CBD5E1;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -1854,12 +1850,14 @@
     }
     .season-tab-btn:hover {
       color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
     }
     .season-tab-btn.is-active {
       background: #FACC15;
       color: #000000;
-      font-weight: 850;
+      font-weight: 900;
       border-color: #FACC15;
       box-shadow: 0 4px 18px rgba(250, 204, 21, 0.4);
     }
@@ -2041,37 +2039,7 @@
       inset: 0;
       background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(16,14,12,0.9) 100%);
     }
-    .moulin-img-badge {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #FFFFFF;
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.5rem 1rem;
-      border-radius: 50vw;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .status-dot-green {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #22C55E;
-      box-shadow: 0 0 10px #22C55E;
-      display: inline-block;
-      animation: pulseDot 2s infinite;
-    }
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
+
     .moulin-card-body {
       padding: 2rem;
     }
@@ -3414,10 +3382,6 @@
         <div class="moulin-img-wrap">
           <img src="riviere.jpg" alt="Rivière Jonte et Moulin des Brasseurs" loading="lazy">
           <div class="moulin-img-overlay"></div>
-          <div class="moulin-img-badge">
-            <span class="status-dot-green"></span>
-            En direct des Gorges de la Jonte
-          </div>
         </div>
 
         <div class="moulin-card-body">

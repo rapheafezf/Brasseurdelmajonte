@@ -1763,32 +1763,105 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
-    /* TABS HEURES DU MOULIN */
+    /* ==========================================================================
+       SECTION LE MOULIN DES BRASSEURS - HAUTE VISIBILITÉ & DESIGN PREMIUM
+       ========================================================================== */
+    .section-moulin {
+      padding: 7rem 5%;
+      background: radial-gradient(circle at 85% 15%, rgba(250, 204, 21, 0.08) 0%, transparent 60%),
+                  radial-gradient(circle at 10% 85%, rgba(217, 119, 6, 0.06) 0%, transparent 50%),
+                  linear-gradient(180deg, #100E0C 0%, #171411 50%, #110F0D 100%);
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: 80px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .moulin-layout-wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+    @media (max-width: 1040px) {
+      .moulin-layout-wrap {
+        grid-template-columns: 1fr;
+        gap: 2.8rem;
+      }
+    }
+    .moulin-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50vw;
+      font-size: 0.8rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(250, 204, 21, 0.14);
+      color: #FACC15;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      margin-bottom: 1.2rem;
+    }
+    .moulin-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.3rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.12;
+      color: #FFFFFF;
+      margin: 0 0 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .moulin-intro-desc {
+      font-size: 1.12rem;
+      line-height: 1.7;
+      color: #E2E8F0;
+      margin-bottom: 2rem;
+      max-width: 680px;
+      font-weight: 400;
+    }
+
+    /* SÉLECTEUR D'ONGLETS SAISONS */
     .season-tabs-switch {
       display: inline-flex;
-      background: rgba(0, 0, 0, 0.08);
-      padding: 0.35rem;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.4rem;
       border-radius: 50vw;
-      gap: 0.35rem;
-      margin-bottom: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      gap: 0.4rem;
+      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
     .season-tab-btn {
-      padding: 0.55rem 1.2rem;
+      padding: 0.7rem 1.4rem;
       border-radius: 50vw;
-      font-size: 0.78rem;
+      font-size: 0.84rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      border: none;
+      border: 1px solid transparent;
       background: transparent;
-      color: var(--color-dark);
+      color: #CBD5E1;
       cursor: pointer;
       transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .season-tab-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.1);
     }
     .season-tab-btn.is-active {
-      background: var(--color-white);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      background: #FACC15;
+      color: #000000;
+      font-weight: 850;
+      border-color: #FACC15;
+      box-shadow: 0 4px 18px rgba(250, 204, 21, 0.4);
     }
     .season-panel {
       display: none;
@@ -1797,6 +1870,259 @@
     .season-panel.is-active {
       display: block;
     }
+
+    /* CARTES D'INFORMATIONS DU MOULIN */
+    .moulin-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .moulin-info-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      transition: all 0.25s ease;
+    }
+    .moulin-info-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(250, 204, 21, 0.45);
+      transform: translateY(-2px);
+    }
+    .moulin-info-card.is-highlight {
+      background: rgba(250, 204, 21, 0.08);
+      border-color: rgba(250, 204, 21, 0.35);
+    }
+    .moulin-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(250, 204, 21, 0.15);
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      color: #FACC15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .moulin-card-content {
+      flex: 1;
+    }
+    .moulin-card-chip {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #FACC15;
+      margin-bottom: 4px;
+    }
+    .moulin-card-title {
+      font-size: 1.15rem;
+      font-weight: 850;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .moulin-card-desc {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #CBD5E1;
+      margin: 0;
+    }
+
+    /* BOUTONS D'ACTION MOULIN - ULTRA VISIBLES */
+    .moulin-actions-wrap {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 2.2rem;
+    }
+    .btn-moulin-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FACC15;
+      color: #000000;
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      font-weight: 850;
+      padding: 0.95rem 1.9rem;
+      border-radius: 50vw;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 20px rgba(250, 204, 21, 0.35);
+      border: 2px solid #FACC15;
+    }
+    .btn-moulin-primary:hover {
+      background: #EAB308;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(250, 204, 21, 0.5);
+    }
+    .btn-moulin-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #FFFFFF;
+      color: #0F172A;
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      font-weight: 850;
+      padding: 0.95rem 1.9rem;
+      border-radius: 50vw;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    }
+    .btn-moulin-secondary:hover {
+      background: #F8FAFC;
+      border-color: #FACC15;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(250, 204, 21, 0.3);
+    }
+    .btn-moulin-secondary svg {
+      color: #D97706;
+    }
+    .btn-moulin-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 0.98rem;
+      font-weight: 800;
+      padding: 0.95rem 1.8rem;
+      border-radius: 50vw;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .btn-moulin-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #FACC15;
+      color: #FACC15;
+      transform: translateY(-2px);
+    }
+
+    /* CARTE VISUELLE DU MOULIN (COLONNE DROITE) */
+    .moulin-showcase-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    .moulin-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+    }
+    .moulin-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .moulin-showcase-card:hover .moulin-img-wrap img {
+      transform: scale(1.05);
+    }
+    .moulin-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(16,14,12,0.9) 100%);
+    }
+    .moulin-img-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.5rem 1rem;
+      border-radius: 50vw;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-dot-green {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 10px #22C55E;
+      display: inline-block;
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+    .moulin-card-body {
+      padding: 2rem;
+    }
+    .moulin-quick-info {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.8rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .moulin-quick-info li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.98rem;
+      color: #E2E8F0;
+      line-height: 1.55;
+    }
+    .moulin-quick-info li strong {
+      color: #FFFFFF;
+    }
+    .moulin-quick-info svg {
+      color: #FACC15;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .moulin-address-pill {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+      padding: 1.1rem 1.3rem;
+      font-size: 0.92rem;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .moulin-address-pill a {
+      color: #FACC15;
+      font-weight: 850;
+      text-decoration: underline;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+    .moulin-address-pill a:hover {
+      color: #FEF08A;
+    }
+
 
     /* SECTION TIREUSES */
     .section-tireuses {
@@ -2924,99 +3250,206 @@
        SECTION LE MOULIN DES BRASSEURS & VISITES
        ========================================================================== -->
   <section class="section-moulin" id="moulin">
-    <div class="moulin-hero-banner">
+    <div class="moulin-layout-wrap">
+      <!-- Colonne Contenu & Horaires -->
       <div class="moulin-content-col">
-        <div class="eyebrow-label" style="background: rgba(255,255,255,0.15); color: #fff;">Lieu de Vie & Taproom</div>
-        <h2 style="font-family: var(--font-title); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1.1; margin: 0.8rem 0 1rem; color: #fff;">
-          Le Moulin des Brasseurs
-        </h2>
-        <p style="font-size: 1.05rem; opacity: 0.92; line-height: 1.6; margin-bottom: 2rem; max-width: 580px;">
-          Ancien moulin réhabilité au cœur du parc national des Cévennes, au bord direct de la rivière Jonte. Un lieu chaleureux pour déguster nos créations à la source, profiter de la terrasse et découvrir les coulisses de la brasserie.
+        <div class="moulin-eyebrow">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+          Lieu de Vie, Taproom & Visites • Gorges de la Jonte
+        </div>
+        <h2 class="moulin-title">Le Moulin des Brasseurs</h2>
+        <p class="moulin-intro-desc">
+          Ancien moulin à eau réhabilité à Gatuzières, au bord direct de la rivière Jonte dans le Parc National des Cévennes. Venez savourer nos créations à la source, profiter de la terrasse ombragée les pieds dans l'eau et découvrir les secrets de fabrication de nos bières artisanales et limonades biologiques.
         </p>
 
-        <!-- Sélecteur d'onglets saisons -->
+        <!-- Sélecteur d'onglets Saisons -->
         <div class="season-tabs-switch">
           <button class="season-tab-btn is-active" id="tabSummer" onclick="switchSeason('summer')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             Saison Estivale (Juillet & Août)
           </button>
+          <button class="season-tab-btn" id="tabMidseason" onclick="switchSeason('midseason')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+            Moyenne Saison (Mai, Juin & Sept)
+          </button>
           <button class="season-tab-btn" id="tabOffseason" onclick="switchSeason('offseason')">
-            Printemps & Automne (Avril - Juin & Sept - Nov)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/></svg>
+            Basse Saison (Octobre à Avril)
           </button>
         </div>
 
-        <!-- Panneau Saison Été -->
+        <!-- Panneau Plein Été -->
         <div class="season-panel is-active" id="panelSummer">
-          <div class="moulin-features-list">
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Bar & Taproom 8 Becs Pression</strong>
-                <span>Service en terrasse ombragée au bord de l'eau, planches de charcuteries lozériennes et fromages fermiers.</span>
+          <div class="moulin-cards-grid">
+            <div class="moulin-info-card is-highlight">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Ouvert 7J/7 en continu • 1er Juillet au 31 Août</span>
+                <div class="moulin-card-title">De 10h00 à 21h00 non-stop</div>
+                <p class="moulin-card-desc">Bar pression, terrasse au bord de l'eau, boutique directe au carton et petite restauration locale accessibles en continu toute la journée.</p>
               </div>
             </div>
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Visites Guidées Gratuites</strong>
-                <span>Du lundi au vendredi à 17h00 tapantes. Gratuit, sans réservation préalable, suivi d'une dégustation offerte.</span>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">100% Gratuit • Sans Réservation</span>
+                <div class="moulin-card-title">Visites guidées du lundi au vendredi à 17h00</div>
+                <p class="moulin-card-desc">Durée 1h environ. Découvrez l'ancien moulin réhabilité, nos cuves de brassage et notre savoir-faire, suivi d'une dégustation offerte au comptoir.</p>
               </div>
             </div>
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Horaires d'Été</strong>
-                <span>Ouvert 7j/7 en continu de 11h00 à 21h00 (non-stop).</span>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Bar & Taproom au fil de l'eau</span>
+                <div class="moulin-card-title">8 Becs Pression, Limonades Bio & Planches du Terroir</div>
+                <p class="moulin-card-desc">Dégustez nos bières fraîches sorties d'atelier, nos limonades artisanales, accompagnées de planches de charcuteries lozériennes et de fromages fermiers de pays.</p>
+              </div>
+            </div>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Vente Directe Producteur</span>
+                <div class="moulin-card-title">Tarifs Brasserie au carton, Coffrets & Verres</div>
+                <p class="moulin-card-desc">Repartez directement avec vos bouteilles (formats 33cl et 75cl), coffrets cadeaux de dégustation et verres sérigraphiés au meilleur tarif moulin.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Panneau Hors Saison -->
+        <!-- Panneau Moyenne Saison -->
+        <div class="season-panel" id="panelMidseason">
+          <div class="moulin-cards-grid">
+            <div class="moulin-info-card is-highlight">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Ouvert 7J/7 en continu • 1er Mai au 30 Juin & Septembre</span>
+                <div class="moulin-card-title">De 10h00 à 19h00 non-stop</div>
+                <p class="moulin-card-desc">Point de vente directe, taproom avec terrasse au bord de la Jonte et petite restauration locale tous les jours de la semaine.</p>
+              </div>
+            </div>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Boutique & Dégustation au comptoir</span>
+                <div class="moulin-card-title">Vente au Carton & Conseils Brassicoles</div>
+                <p class="moulin-card-desc">Venez échanger avec notre équipe, déguster nos créations de saison et composer vos cartons de bières et limonades à emporter.</p>
+              </div>
+            </div>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Groupes & Associations</span>
+                <div class="moulin-card-title">Visites privatisées sur réservation</div>
+                <p class="moulin-card-desc">Possibilité d'accueil et de visites sur mesure pour groupes, clubs et séminaires sur demande préalable par email ou téléphone.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panneau Basse Saison / Hiver -->
         <div class="season-panel" id="panelOffseason">
-          <div class="moulin-features-list">
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Boutique Directe Producteur</strong>
-                <span>Vente au carton de nos bières et limonades, coffrets découverte, verres officiels et produits locaux.</span>
+          <div class="moulin-cards-grid">
+            <div class="moulin-info-card is-highlight">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Du Lundi au Vendredi • 1er Octobre au 30 Avril</span>
+                <div class="moulin-card-title">10h00 - 12h00 & 14h00 - 17h00</div>
+                <p class="moulin-card-desc">Point de vente directe producteur ouvert en semaine. Fermé le week-end et pendant les vacances scolaires de Noël.</p>
               </div>
             </div>
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Dégustation au Comptoir</strong>
-                <span>Échangez directement avec l'équipe brassicole et goûtez les nouvelles cuvées sorties de cuve.</span>
+
+            <div class="moulin-info-card">
+              <div class="moulin-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
               </div>
-            </div>
-            <div class="moulin-feat-item">
-              <span class="moulin-feat-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <div class="moulin-feat-text">
-                <strong>Horaires Hors Saison</strong>
-                <span>Du mardi au samedi de 14h00 à 19h00 (fermé le dimanche et lundi).</span>
+              <div class="moulin-card-content">
+                <span class="moulin-card-chip">Approvisionnement Direct</span>
+                <div class="moulin-card-title">Vente au Carton & Brassins d'Hiver</div>
+                <p class="moulin-card-desc">Faites le plein pour vos repas de fête et réceptions au tarif direct brasserie. Coffrets cadeaux et verres disponibles.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="#contact" class="btn-pill is-primary" style="background: #EAB308; color: #000;">
-            Venir au Moulin
+        <!-- Boutons d'Action - Haute Visibilité -->
+        <div class="moulin-actions-wrap">
+          <a href="https://maps.google.com/?q=Les+Brasseurs+de+la+Jonte+Gatuzieres" target="_blank" rel="noopener" class="btn-moulin-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            Venir au Moulin (GPS)
           </a>
-          <a href="tel:0448500083" class="btn-pill" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);">
+          <a href="tel:0448500083" class="btn-moulin-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             04 48 50 00 83
           </a>
+          <a href="#contact" class="btn-moulin-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Nous écrire
+          </a>
+        </div>
+      </div>
+
+      <!-- Colonne Visuelle & Pratique (Carte Droite) -->
+      <div class="moulin-showcase-card">
+        <div class="moulin-img-wrap">
+          <img src="riviere.jpg" alt="Rivière Jonte et Moulin des Brasseurs" loading="lazy">
+          <div class="moulin-img-overlay"></div>
+          <div class="moulin-img-badge">
+            <span class="status-dot-green"></span>
+            En direct des Gorges de la Jonte
+          </div>
+        </div>
+
+        <div class="moulin-card-body">
+          <ul class="moulin-quick-info">
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Adresse :</strong> Le Moulin, Mas Prades, 48150 Gatuzières (Lozère)</div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div><strong>Horaires d'été :</strong> 7j/7 en continu de 10h à 21h (non-stop)</div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              <div><strong>Visites guidées :</strong> Du lundi au vendredi à 17h00 (gratuit & 1h)</div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 8h14M5 8a2 2 0 1 1 0-4h14a2 2 0 1 1 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></svg>
+              <div><strong>Sur place :</strong> 8 bières pression, limonades bio, terrasse au bord de l'eau</div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <div><strong>Accès :</strong> Parking gratuit sur place, accessible en famille, animaux bienvenus</div>
+            </li>
+          </ul>
+
+          <div class="moulin-address-pill">
+            <span>D996 entre Meyrueis et Florac</span>
+            <a href="https://maps.google.com/?q=Les+Brasseurs+de+la+Jonte+Gatuzieres" target="_blank" rel="noopener">
+              Ouvrir dans Maps &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -3680,22 +4113,21 @@
 
     // Onglets Saisons - Le Moulin
     function switchSeason(season) {
-      const tabSummer = document.getElementById("tabSummer");
-      const tabOffseason = document.getElementById("tabOffseason");
-      const panelSummer = document.getElementById("panelSummer");
-      const panelOffseason = document.getElementById("panelOffseason");
+      const tabs = {
+        summer: document.getElementById("tabSummer"),
+        midseason: document.getElementById("tabMidseason"),
+        offseason: document.getElementById("tabOffseason")
+      };
+      const panels = {
+        summer: document.getElementById("panelSummer"),
+        midseason: document.getElementById("panelMidseason"),
+        offseason: document.getElementById("panelOffseason")
+      };
 
-      if (season === "summer") {
-        tabSummer.classList.add("is-active");
-        tabOffseason.classList.remove("is-active");
-        panelSummer.classList.add("is-active");
-        panelOffseason.classList.remove("is-active");
-      } else {
-        tabOffseason.classList.add("is-active");
-        tabSummer.classList.remove("is-active");
-        panelOffseason.classList.add("is-active");
-        panelSummer.classList.remove("is-active");
-      }
+      Object.keys(tabs).forEach(key => {
+        if (tabs[key]) tabs[key].classList.toggle("is-active", key === season);
+        if (panels[key]) panels[key].classList.toggle("is-active", key === season);
+      });
     }
 
     // Sélecteur d'objet dans le formulaire de contact

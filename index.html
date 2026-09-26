@@ -561,7 +561,7 @@
 
     .marquee-stream {
       display: inline-flex;
-      animation: marqueeRun 24s linear infinite;
+      animation: marqueeRun 48s linear infinite;
     }
 
     @keyframes marqueeRun {
@@ -900,10 +900,17 @@
 
     .ribbon-stream {
       display: inline-flex;
-      animation: ribbonFlow 20s linear infinite;
+      animation: ribbonFlow 65s linear infinite;
+    }
+    .ribbon-row:hover .ribbon-stream {
+      animation-play-state: paused;
     }
     .ribbon-row.r-green .ribbon-stream {
       animation-direction: reverse;
+      animation-duration: 72s;
+    }
+    .ribbon-row.r-orange .ribbon-stream {
+      animation-duration: 58s;
     }
 
     @keyframes ribbonFlow {

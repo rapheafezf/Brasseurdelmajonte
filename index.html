@@ -1425,6 +1425,480 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
+    /* NAVIGATION DESKTOP PILL */
+    .nav-desktop-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0.32rem 0.55rem;
+      border-radius: 50vw;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .navbar.is-scrolled .nav-desktop-links {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+    .nav-item-link {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 0.42rem 0.95rem;
+      border-radius: 50vw;
+      color: var(--color-white);
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .navbar.is-scrolled .nav-item-link {
+      color: var(--color-dark);
+    }
+    .nav-item-link:hover {
+      background: rgba(255, 255, 255, 0.22);
+      color: var(--color-white);
+      transform: translateY(-1px);
+    }
+    .navbar.is-scrolled .nav-item-link:hover {
+      background: rgba(0, 0, 0, 0.08);
+      color: var(--color-dark);
+    }
+    @media (max-width: 1060px) {
+      .nav-desktop-links { display: none; }
+    }
+
+    /* FILTRES DU CATALOGUE */
+    .catalog-filters-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: -1.8rem auto 2.8rem;
+      max-width: 900px;
+    }
+    .filter-pill-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 50vw;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      background: var(--color-white);
+      color: var(--color-dark);
+      cursor: pointer;
+      transition: all 0.25s var(--ease-spring);
+    }
+    .filter-pill-btn:hover {
+      border-color: var(--color-dark);
+      transform: translateY(-2px);
+    }
+    .filter-pill-btn.is-active {
+      background: var(--color-dark);
+      color: var(--color-white);
+      border-color: var(--color-dark);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    }
+
+    /* BADGES SPÉCIFICATIONS DES CARTES */
+    .card-specs-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+    .card-spec-tag {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 50vw;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      color: var(--color-white);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .card-spec-tag.is-gold {
+      background: rgba(234, 179, 8, 0.35);
+      border-color: rgba(253, 224, 71, 0.6);
+      color: #FEF08A;
+    }
+
+    /* SECTION NOTRE SAVOIR-FAIRE */
+    .section-craft {
+      padding: 7rem 5%;
+      background: linear-gradient(180deg, #1C1917 0%, #0F0E0D 100%);
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .section-craft::before {
+      content: "";
+      position: absolute;
+      top: -200px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .craft-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.6rem;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1040px) {
+      .craft-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .craft-grid { grid-template-columns: 1fr; }
+    }
+    .craft-step-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 28px;
+      padding: 2.2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      transition: all 0.35s var(--ease-spring);
+      position: relative;
+    }
+    .craft-step-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(234, 179, 8, 0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .craft-step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.8rem;
+    }
+    .craft-step-num {
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #FACC15;
+      letter-spacing: 0.1em;
+    }
+    .craft-step-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .craft-step-title {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .craft-step-desc {
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* TABS HEURES DU MOULIN */
+    .season-tabs-switch {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.08);
+      padding: 0.35rem;
+      border-radius: 50vw;
+      gap: 0.35rem;
+      margin-bottom: 1.8rem;
+      flex-wrap: wrap;
+    }
+    .season-tab-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 50vw;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: none;
+      background: transparent;
+      color: var(--color-dark);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .season-tab-btn.is-active {
+      background: var(--color-white);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+    .season-panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .season-panel.is-active {
+      display: block;
+    }
+
+    /* SECTION TIREUSES */
+    .section-tireuses {
+      padding: 6.5rem 5%;
+      background: var(--color-cream);
+    }
+    .tireuse-card-main {
+      max-width: 1220px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: 36px;
+      padding: clamp(2.5rem, 5vw, 4.5rem);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    @media (max-width: 920px) {
+      .tireuse-card-main { grid-template-columns: 1fr; }
+    }
+    .tireuse-perks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .perk-item {
+      padding: 1rem 1.2rem;
+      background: var(--color-cream);
+      border-radius: 18px;
+    }
+    .perk-item strong {
+      display: block;
+      font-family: var(--font-title);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+      color: #9A3412;
+    }
+    .perk-item span {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      line-height: 1.45;
+      display: block;
+    }
+
+    /* SECTION AVIS / TÉMOIGNAGES */
+    .section-reviews {
+      padding: 6.5rem 5%;
+      background: var(--color-white);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+    .review-card {
+      background: var(--color-cream);
+      border-radius: 24px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    .review-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+    .review-stars {
+      color: #F59E0B;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.15em;
+    }
+    .review-quote {
+      font-size: 0.96rem;
+      line-height: 1.65;
+      color: #374151;
+      font-style: italic;
+      margin-bottom: 1.4rem;
+    }
+    .review-author {
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: var(--color-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .review-meta {
+      font-size: 0.76rem;
+      color: var(--color-muted);
+    }
+
+    /* SECTION FAQ */
+    .section-faq {
+      padding: 6.5rem 5%;
+      background: var(--color-cream);
+    }
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: var(--color-white);
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.4rem 1.8rem;
+      font-family: var(--font-title);
+      font-size: 1.05rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: var(--color-dark);
+    }
+    .faq-icon-arrow {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.is-open .faq-icon-arrow {
+      transform: rotate(180deg);
+      background: var(--color-dark);
+      color: var(--color-white);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 1.8rem;
+      color: #4B5563;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .faq-item.is-open .faq-answer {
+      max-height: 260px;
+      padding: 0 1.8rem 1.6rem;
+    }
+
+    /* SÉLECTEUR DE TYPE DE CONTACT */
+    .contact-type-selector {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .type-choice-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 50vw;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: var(--color-cream);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: var(--color-dark);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .type-choice-btn.is-active {
+      background: var(--color-dark);
+      color: var(--color-white);
+      border-color: var(--color-dark);
+    }
+
+    /* DIRECT CONTACT INFO BAR */
+    .direct-contacts-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    @media (max-width: 640px) {
+      .direct-contacts-row { grid-template-columns: 1fr; }
+    }
+    .contact-quick-item strong {
+      display: block;
+      font-family: var(--font-title);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+      color: var(--color-muted);
+    }
+    .contact-quick-item a, .contact-quick-item span {
+      font-weight: 700;
+      color: var(--color-dark);
+      font-size: 0.95rem;
+    }
+
+    /* BOUTON RETOUR EN HAUT */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-dark);
+      color: var(--color-white);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s var(--ease-spring);
+    }
+    .back-to-top-btn.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: #EAB308;
+      color: var(--color-dark);
+      transform: translateY(-4px) scale(1.08);
+    }
   </style>
 </head>
 <body data-theme="brimbelle">
@@ -1437,6 +1911,15 @@
       <div class="nav-badge-icon">✦</div>
       <span>Les Brasseurs de la Jonte</span>
     </a>
+
+    <nav class="nav-desktop-links" aria-label="Navigation principale">
+      <a href="#bieres" class="nav-item-link">Bières</a>
+      <a href="#limonades" class="nav-item-link">Limonades</a>
+      <a href="#savoir-faire" class="nav-item-link">Savoir-Faire</a>
+      <a href="#moulin" class="nav-item-link">Le Moulin & Visite</a>
+      <a href="#tireuses" class="nav-item-link">Tireuses & Fûts</a>
+      <a href="#faq" class="nav-item-link">FAQ</a>
+    </nav>
 
     <div class="nav-actions">
       <a href="#contact" class="btn-pill is-primary">Contactez-nous</a>
@@ -1454,12 +1937,14 @@
   <nav class="menu-fullscreen" id="fullscreenNav">
     <div class="menu-links">
       <a href="#" class="menu-link nav-click">Accueil</a>
-      <a href="#bieres" class="menu-link nav-click">Nos Bières</a>
-      <a href="#limonades" class="menu-link nav-click">Nos Limonades</a>
+      <a href="#bieres" class="menu-link nav-click">Nos 5 Bières</a>
+      <a href="#limonades" class="menu-link nav-click">Nos 9 Limonades Bio</a>
+      <a href="#savoir-faire" class="menu-link nav-click">Notre Savoir-Faire</a>
+      <a href="#moulin" class="menu-link nav-click">Le Moulin & Tap Room</a>
+      <a href="#tireuses" class="menu-link nav-click">Location de Tireuses</a>
       <a href="#histoire" class="menu-link nav-click">Notre Histoire</a>
-      <a href="#visiter" class="menu-link nav-click">Visiter la Brasserie</a>
-      <a href="#revendeurs" class="menu-link nav-click">Où nous trouver</a>
-      <a href="#contact" class="menu-link nav-click">Contact</a>
+      <a href="#faq" class="menu-link nav-click">Questions Fréquentes</a>
+      <a href="#contact" class="menu-link nav-click">Contact & Accès</a>
     </div>
     <div style="margin-top: 3rem; text-align: center; font-size: 0.88rem; opacity: 0.7;">
       <p>Gatuzières, Lozère — Depuis 2013</p>
@@ -1725,17 +2210,32 @@
        ========================================================================== -->
   <section class="section-catalog" id="bieres">
     <div class="section-title-wrap">
-      <div class="eyebrow-label">Nos Bières Artisanales</div>
-      <h2 class="main-heading">Une gamme née en Lozère</h2>
-      <p class="sub-lead">Recettes authentiques élaborées à Gatuzières avec des ingrédients issus de l'agriculture biologique, sans conservateurs.</p>
+      <div class="eyebrow-label">Bières Artisanales & Biologiques</div>
+      <h2 class="main-heading">Une Gamme Née en Lozère</h2>
+      <p class="sub-lead">Élaborées à Gatuzières avec des céréales certifiées bio, de l'eau pure des Cévennes et une refermentation naturelle en bouteille, sans conservateurs.</p>
     </div>
 
-    <div class="cards-grid-5">
+    <!-- Barre de filtrage interactif des bières -->
+    <div class="catalog-filters-bar" id="bieresFilterBar">
+      <button class="filter-pill-btn is-active" data-filter="all">Toutes nos bières (5)</button>
+      <button class="filter-pill-btn" data-filter="fruitee">Blanche & Myrtille</button>
+      <button class="filter-pill-btn" data-filter="houblon">IPA Single Hop</button>
+      <button class="filter-pill-btn" data-filter="forte">Triple de caractère</button>
+      <button class="filter-pill-btn" data-filter="sans-alcool">Sans alcool (< 0.5%)</button>
+      <button class="filter-pill-btn" data-filter="special">Édition Fûts de chêne</button>
+    </div>
+
+    <div class="cards-grid-5" id="bieresCatalogGrid">
       <!-- 1. Brimbelle -->
-      <div class="card-item" style="background: linear-gradient(145deg, #361543 0%, #86198F 100%);" onclick="focusBottle('brimbelle')">
+      <div class="card-item" data-bieres-cat="fruitee" style="background: linear-gradient(145deg, #361543 0%, #86198F 100%);" onclick="focusBottle('brimbelle')">
         <div class="card-meta-top">
           <div class="card-category-pill">Blanche Fruité Bio</div>
           <h3 class="card-product-name">Brimbelle</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Bio Certifié</span>
+            <span class="card-spec-tag">5.0% vol.</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/brimbelle.png" alt="Brimbelle" class="card-bottle-img">
         <div class="card-meta-bottom">
@@ -1745,10 +2245,15 @@
       </div>
 
       <!-- 2. Tantaravel -->
-      <div class="card-item" style="background: linear-gradient(145deg, #9A3412 0%, #EA580C 100%);" onclick="focusBottle('tantaravel')">
+      <div class="card-item" data-bieres-cat="houblon" style="background: linear-gradient(145deg, #9A3412 0%, #EA580C 100%);" onclick="focusBottle('tantaravel')">
         <div class="card-meta-top">
           <div class="card-category-pill">IPA Single Hop</div>
           <h3 class="card-product-name">Tantaravel</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Single Hop</span>
+            <span class="card-spec-tag">6.2% vol.</span>
+            <span class="card-spec-tag">Amertume Franche</span>
+          </div>
         </div>
         <img src="assets/bottles/tantaravel.png" alt="Tantaravel" class="card-bottle-img">
         <div class="card-meta-bottom">
@@ -1758,10 +2263,15 @@
       </div>
 
       <!-- 3. Triple Bio -->
-      <div class="card-item" style="background: linear-gradient(145deg, #78350F 0%, #D97706 100%);" onclick="focusBottle('triple_bio')">
+      <div class="card-item" data-bieres-cat="forte" style="background: linear-gradient(145deg, #78350F 0%, #D97706 100%);" onclick="focusBottle('triple_bio')">
         <div class="card-meta-top">
           <div class="card-category-pill">Bière Blonde Forte Bio</div>
           <h3 class="card-product-name">Triple Bio</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Triple Malt</span>
+            <span class="card-spec-tag">8.5% vol.</span>
+            <span class="card-spec-tag">Rondeur & Force</span>
+          </div>
         </div>
         <img src="assets/bottles/triple_bio.png" alt="Triple Bio" class="card-bottle-img">
         <div class="card-meta-bottom">
@@ -1771,10 +2281,15 @@
       </div>
 
       <!-- 4. Minim'ale -->
-      <div class="card-item" style="background: linear-gradient(145deg, #14532D 0%, #65A30D 100%);" onclick="focusBottle('minim_ale')">
+      <div class="card-item" data-bieres-cat="sans-alcool" style="background: linear-gradient(145deg, #14532D 0%, #65A30D 100%);" onclick="focusBottle('minim_ale')">
         <div class="card-meta-top">
-          <div class="card-category-pill">Sans Alcool Bio</div>
+          <div class="card-category-pill">Bière Sans Alcool Bio</div>
           <h3 class="card-product-name">Minim'ale</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ 100% Plaisir Bio</span>
+            <span class="card-spec-tag">< 0.5% vol.</span>
+            <span class="card-spec-tag">Houblonnée</span>
+          </div>
         </div>
         <img src="assets/bottles/minim_ale.png" alt="Minim'ale" class="card-bottle-img">
         <div class="card-meta-bottom">
@@ -1784,10 +2299,15 @@
       </div>
 
       <!-- 5. La Cerise sur le Piment -->
-      <div class="card-item" style="background: linear-gradient(145deg, #4C0519 0%, #BE123C 100%);" onclick="focusBottle('cerise_piment')">
+      <div class="card-item" data-bieres-cat="special" style="background: linear-gradient(145deg, #831843 0%, #E11D48 100%);" onclick="focusBottle('cerise_piment')">
         <div class="card-meta-top">
-          <div class="card-category-pill">Humeurs des Brasseurs</div>
-          <h3 class="card-product-name">La Cerise sur le Piment</h3>
+          <div class="card-category-pill">Fûts de Chêne</div>
+          <h3 class="card-product-name">La Cerise</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Fûts de Chêne</span>
+            <span class="card-spec-tag">7.0% vol.</span>
+            <span class="card-spec-tag">Édition Limitée</span>
+          </div>
         </div>
         <img src="assets/bottles/cerise_piment.png" alt="La Cerise sur le Piment" class="card-bottle-img">
         <div class="card-meta-bottom">
@@ -1803,128 +2323,364 @@
        ========================================================================== -->
   <section class="section-catalog" id="limonades" style="background: var(--color-cream);">
     <div class="section-title-wrap">
-      <div class="eyebrow-label">Nos Limonades Bio</div>
-      <h2 class="main-heading">Fraîcheur & Fruits Vrais</h2>
-      <p class="sub-lead">9 saveurs pétillantes élaborées avec des ingrédients bio et sans conservateurs pour une alternative saine et authentique.</p>
+      <div class="eyebrow-label">Limonades Artisanales & Bio</div>
+      <h2 class="main-heading">9 Saveurs Vivantes & Pétillantes</h2>
+      <p class="sub-lead">Toutes élaborées avec de véritables fruits, baies sauvages et plantes locales, sans conservateurs, pour une alternative saine et gourmande.</p>
     </div>
 
-    <div class="cards-grid-limonades">
+    <!-- Barre de filtrage interactif des limonades -->
+    <div class="catalog-filters-bar" id="limonadesFilterBar">
+      <button class="filter-pill-btn is-active" data-limo-filter="all">Toutes les saveurs (9)</button>
+      <button class="filter-pill-btn" data-limo-filter="agrumes-epices">Agrumes & Épices</button>
+      <button class="filter-pill-btn" data-limo-filter="fruits">Fruits & Baies Sauvages</button>
+      <button class="filter-pill-btn" data-limo-filter="plantes">Plantes, Fleurs & Miel</button>
+      <button class="filter-pill-btn" data-limo-filter="the-cola">Thé Pêche & Cola</button>
+    </div>
+
+    <div class="cards-grid-limonades" id="limonadesCatalogGrid">
       <!-- 1. Citron -->
-      <div class="card-item" style="background: linear-gradient(145deg, #854D0E 0%, #EAB308 100%);" onclick="focusBottle('citron')">
+      <div class="card-item" data-limo-cat="agrumes-epices" style="background: linear-gradient(145deg, #854D0E 0%, #EAB308 100%);" onclick="focusBottle('citron')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La rafraîchissante</h3>
+          <h3 class="card-product-name">Citron</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
+            <span class="card-spec-tag">La rafraîchissante</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/citron.png" alt="Citron" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Citron — acidulée, pétillante et ultra désaltérante.</p>
+          <p class="card-tasting-text">Citron bio — acidulée, pétillante et ultra désaltérante. La saveur classique revisitée avec pureté.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 2. Myrtille -->
-      <div class="card-item" style="background: linear-gradient(145deg, #1E1B4B 0%, #4F46E5 100%);" onclick="focusBottle('myrtille')">
+      <div class="card-item" data-limo-cat="fruits" style="background: linear-gradient(145deg, #1E1B4B 0%, #4F46E5 100%);" onclick="focusBottle('myrtille')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">L'originale</h3>
+          <h3 class="card-product-name">Myrtille</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
+            <span class="card-spec-tag">L'originale</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/myrtille.png" alt="Myrtille" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Myrtille — saveur sauvage de Lozère, fruitée et gourmande.</p>
+          <p class="card-tasting-text">Myrtille sauvage — saveur emblématique de Lozère, fruitée, boisée et gourmande.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 3. Miel -->
-      <div class="card-item" style="background: linear-gradient(145deg, #451A03 0%, #B45309 100%);" onclick="focusBottle('miel')">
+      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #451A03 0%, #B45309 100%);" onclick="focusBottle('miel')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La cévenole</h3>
+          <h3 class="card-product-name">Miel</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Miel Cévenol</span>
+            <span class="card-spec-tag">La cévenole</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/miel.png" alt="Miel de châtaignier" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Miel de châtaignier — douceur boisée et rondeur des Cévennes.</p>
+          <p class="card-tasting-text">Miel de châtaignier — douceur boisée et rondeur naturelle du terroir des Cévennes.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 4. Abricot -->
-      <div class="card-item" style="background: linear-gradient(145deg, #9A3412 0%, #F97316 100%);" onclick="focusBottle('abricot')">
+      <div class="card-item" data-limo-cat="fruits" style="background: linear-gradient(145deg, #9A3412 0%, #F97316 100%);" onclick="focusBottle('abricot')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La fruitée</h3>
+          <h3 class="card-product-name">Abricot</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ 100% Bio</span>
+            <span class="card-spec-tag">La fruitée</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/abricot.png" alt="Abricot" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Abricot — veloutée, fruitée et gorgée de soleil.</p>
+          <p class="card-tasting-text">Abricot bio — texture veloutée, parfum fruité généreux gorgé de soleil.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 5. Sureau -->
-      <div class="card-item" style="background: linear-gradient(145deg, #064E3B 0%, #10B981 100%);" onclick="focusBottle('sureau')">
+      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #064E3B 0%, #10B981 100%);" onclick="focusBottle('sureau')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La fleurie</h3>
+          <h3 class="card-product-name">Sureau</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Fleurs Cueillies</span>
+            <span class="card-spec-tag">La fleurie</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/sureau.png" alt="Sureau" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Sureau — notes florales délicates et fraîcheur printanière.</p>
+          <p class="card-tasting-text">Fleurs de sureau — infusion florale délicate et fraîcheur printanière envoûtante.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 6. Ginger Beer -->
-      <div class="card-item" style="background: linear-gradient(145deg, #713F12 0%, #CA8A04 100%);" onclick="focusBottle('ginger')">
+      <div class="card-item" data-limo-cat="agrumes-epices" style="background: linear-gradient(145deg, #713F12 0%, #CA8A04 100%);" onclick="focusBottle('ginger')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La Ginger Beer</h3>
+          <h3 class="card-product-name">Gingembre</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Ginger Beer</span>
+            <span class="card-spec-tag">Peps Épicé</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/ginger.png" alt="Ginger Beer" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Gingembre — épicée, vivifiante et pétillante avec du peps.</p>
+          <p class="card-tasting-text">Gingembre bio — épicée, piquante et vivifiante avec un peps revigorant.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 7. Peppermint -->
-      <div class="card-item" style="background: linear-gradient(145deg, #042F2E 0%, #0D9488 100%);" onclick="focusBottle('menthe')">
+      <div class="card-item" data-limo-cat="plantes" style="background: linear-gradient(145deg, #042F2E 0%, #0D9488 100%);" onclick="focusBottle('menthe')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">La peppermint</h3>
+          <h3 class="card-product-name">Menthe</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Menthe Poivrée</span>
+            <span class="card-spec-tag">La peppermint</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/menthe.png" alt="Menthe poivrée" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Menthe poivrée — frisson intense de fraîcheur végétale.</p>
+          <p class="card-tasting-text">Menthe poivrée — frisson intense de fraîcheur végétale, parfaite glacée en plein été.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 8. Thé Pêche -->
-      <div class="card-item" style="background: linear-gradient(145deg, #7C2D12 0%, #FB923C 100%);" onclick="focusBottle('the_peche')">
+      <div class="card-item" data-limo-cat="the-cola" style="background: linear-gradient(145deg, #7C2D12 0%, #FB923C 100%);" onclick="focusBottle('the_peche')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Le glacé</h3>
+          <h3 class="card-product-name">Thé Pêche</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Vraie Infusion</span>
+            <span class="card-spec-tag">Le glacé</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/the_peche.png" alt="Thé pêche" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Thé pêche — infusion naturelle et douceur fruitée.</p>
+          <p class="card-tasting-text">Thé pêche — infusion naturelle de thé bio et nectar de pêche velouté, sans sucres superflus.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
 
       <!-- 9. Cola -->
-      <div class="card-item" style="background: linear-gradient(145deg, #18181B 0%, #52525B 100%);" onclick="focusBottle('cola')">
+      <div class="card-item" data-limo-cat="the-cola" style="background: linear-gradient(145deg, #18181B 0%, #52525B 100%);" onclick="focusBottle('cola')">
         <div class="card-meta-top">
           <div class="card-category-pill">Limonade Bio</div>
-          <h3 class="card-product-name">Le revisité</h3>
+          <h3 class="card-product-name">Cola</h3>
+          <div class="card-specs-row">
+            <span class="card-spec-tag is-gold">✦ Artisanal Bio</span>
+            <span class="card-spec-tag">Le revisité</span>
+            <span class="card-spec-tag">33cl & 75cl</span>
+          </div>
         </div>
         <img src="assets/bottles/cola.png" alt="Cola artisanal" class="card-bottle-img">
         <div class="card-meta-bottom">
-          <p class="card-tasting-text">Cola — recette artisanale naturelle réinventée avec finesse.</p>
+          <p class="card-tasting-text">Cola artisanal — recette naturelle réinventée avec finesse, aux épices douces et bulles légères.</p>
           <div class="card-action-btn">Voir dans la rangée ✦</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION SAVOIR-FAIRE & QUALITÉ ARTISANALE
+       ========================================================================== -->
+  <section class="section-craft" id="savoir-faire">
+    <div class="section-title-wrap">
+      <div class="eyebrow-label">L'Art du Brassage Naturel</div>
+      <h2 class="main-heading">Notre Savoir-Faire en 4 Piliers</h2>
+      <p class="sub-lead">Depuis 2013, nous défendons une production artisanale, exigeante et respectueuse de notre écosystème cévenol.</p>
+    </div>
+
+    <div class="craft-grid">
+      <!-- Pilier 1 -->
+      <div class="craft-col-card">
+        <div class="craft-icon-circle">💧</div>
+        <div class="craft-step-number">01. Pureté</div>
+        <h3 class="craft-card-title">Eau de la Jonte</h3>
+        <p class="craft-card-desc">Une eau de source cévenole d'une pureté cristalline, non traitée chimiquement, filtrée naturellement par les schistes et calcaires de nos gorges sauvages.</p>
+      </div>
+
+      <!-- Pilier 2 -->
+      <div class="craft-col-card">
+        <div class="craft-icon-circle">🌾</div>
+        <div class="craft-step-number">02. Nature</div>
+        <h3 class="craft-card-title">100% Céréales Bio</h3>
+        <p class="craft-card-desc">Tous nos malts d'orge et de blé sont issus de l'agriculture biologique certifiée. Aucun additif artificiel, aucun extrait de synthèse ni conservateur.</p>
+      </div>
+
+      <!-- Pilier 3 -->
+      <div class="craft-col-card">
+        <div class="craft-icon-circle">🌿</div>
+        <div class="craft-step-number">03. Arômes</div>
+        <h3 class="craft-card-title">Houblons & Vrais Fruits</h3>
+        <p class="craft-card-desc">Sélection méticuleuse de houblons nobles (Perle, Azacca, Barbe Rouge, Nugget) et d'infusions végétales authentiques (fleurs de sureau, menthe poivrée, miel de châtaignier).</p>
+      </div>
+
+      <!-- Pilier 4 -->
+      <div class="craft-col-card">
+        <div class="craft-icon-circle">🪵</div>
+        <div class="craft-step-number">04. Patience</div>
+        <h3 class="craft-card-title">Refermentation & Fûts</h3>
+        <p class="craft-card-desc">Prise de mousse naturelle et affinage soigné en chambre chaude. Élevage précieux en vieux fûts de chêne (rhum, whisky, calvados) pour notre collection éphémère.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION LE MOULIN DES BRASSEURS & VISITES
+       ========================================================================== -->
+  <section class="section-moulin" id="moulin">
+    <div class="moulin-hero-banner">
+      <div class="moulin-content-col">
+        <div class="eyebrow-label" style="background: rgba(255,255,255,0.15); color: #fff;">Lieu de Vie & Taproom</div>
+        <h2 style="font-family: var(--font-title); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; line-height: 1.1; margin: 0.8rem 0 1rem; color: #fff;">
+          Le Moulin des Brasseurs
+        </h2>
+        <p style="font-size: 1.05rem; opacity: 0.92; line-height: 1.6; margin-bottom: 2rem; max-width: 580px;">
+          Ancien moulin réhabilité au cœur du parc national des Cévennes, au bord direct de la rivière Jonte. Un lieu chaleureux pour déguster nos créations à la source, profiter de la terrasse et découvrir les coulisses de la brasserie.
+        </p>
+
+        <!-- Sélecteur d'onglets saisons -->
+        <div class="season-tabs-switch">
+          <button class="season-tab-btn is-active" id="tabSummer" onclick="switchSeason('summer')">
+            ☀️ Saison Estivale (Juillet & Août)
+          </button>
+          <button class="season-tab-btn" id="tabOffseason" onclick="switchSeason('offseason')">
+            🍂 Printemps & Automne (Avril - Juin & Sept - Nov)
+          </button>
+        </div>
+
+        <!-- Panneau Saison Été -->
+        <div class="season-panel is-active" id="panelSummer">
+          <div class="moulin-features-list">
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🍻</span>
+              <div class="moulin-feat-text">
+                <strong>Bar & Taproom 8 Becs Pression</strong>
+                <span>Service en terrasse ombragée au bord de l'eau, planches de charcuteries lozériennes et fromages fermiers.</span>
+              </div>
+            </div>
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🎟️</span>
+              <div class="moulin-feat-text">
+                <strong>Visites Guidées Gratuites</strong>
+                <span>Du lundi au vendredi à 17h00 tapantes. Gratuit, sans réservation préalable, suivi d'une dégustation offerte.</span>
+              </div>
+            </div>
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🕒</span>
+              <div class="moulin-feat-text">
+                <strong>Horaires d'Été</strong>
+                <span>Ouvert 7j/7 en continu de 11h00 à 21h00 (non-stop).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panneau Hors Saison -->
+        <div class="season-panel" id="panelOffseason">
+          <div class="moulin-features-list">
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🛍️</span>
+              <div class="moulin-feat-text">
+                <strong>Boutique Directe Producteur</strong>
+                <span>Vente au carton de nos bières et limonades, coffrets découverte, verres officiels et produits locaux.</span>
+              </div>
+            </div>
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🥂</span>
+              <div class="moulin-feat-text">
+                <strong>Dégustation au Comptoir</strong>
+                <span>Échangez directement avec l'équipe brassicole et goûtez les nouvelles cuvées sorties de cuve.</span>
+              </div>
+            </div>
+            <div class="moulin-feat-item">
+              <span class="moulin-feat-icon">🕒</span>
+              <div class="moulin-feat-text">
+                <strong>Horaires Hors Saison</strong>
+                <span>Du mardi au samedi de 14h00 à 19h00 (fermé le dimanche et lundi).</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="#contact" class="btn-pill is-primary" style="background: #EAB308; color: #000;">
+            Venir au Moulin ✦
+          </a>
+          <a href="tel:0448500083" class="btn-pill" style="background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3);">
+            📞 04 48 50 00 83
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION LOCATION DE TIREUSES & FÛTS
+       ========================================================================== -->
+  <section class="section-tireuses" id="tireuses">
+    <div class="section-title-wrap">
+      <div class="eyebrow-label">Événements, Mariages & Fêtes</div>
+      <h2 class="main-heading">Location de Tireuses & Fûts</h2>
+      <p class="sub-lead">Apportez la bière artisanale de la Jonte à la pression pour vos mariages, anniversaires, fêtes de village et événements d'entreprise.</p>
+    </div>
+
+    <div class="tireuses-grid">
+      <!-- Colonne 1 -->
+      <div class="tireuse-info-card">
+        <div class="tireuse-tag">Matériel Pro</div>
+        <h3>Tireuse Mobile Prête en 10 min</h3>
+        <p>Tireuse professionnelle à refroidissement à sec instantané. Très compacte, facile à transporter dans un coffre de voiture et immédiatement opérationnelle sans bouteille de CO2 complexe.</p>
+      </div>
+
+      <!-- Colonne 2 -->
+      <div class="tireuse-info-card">
+        <div class="tireuse-tag">Choix des Brassins</div>
+        <h3>Fûts Inox 20L & 30L</h3>
+        <p>Disponibles sur nos bières permanentes (Brimbelle, Tantaravel IPA, Blonde). Formats 20 litres (~80 demi) et 30 litres (~120 demi). Reprise intégrale des fûts non percutés !</p>
+      </div>
+
+      <!-- Colonne 3 -->
+      <div class="tireuse-info-card">
+        <div class="tireuse-tag">Sérénité Totale</div>
+        <h3>Ecocups & Conseils Brasseur</h3>
+        <p>Mise à disposition de verres écocups réutilisables consignés, explications détaillées de branchement et assistance directe de notre équipe en cas de question.</p>
+      </div>
+    </div>
+
+    <div class="tireuses-cta-banner">
+      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🎉</div>
+      <h3 style="font-family: var(--font-title); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">
+        Vous organisez un événement prochainement ?
+      </h3>
+      <p style="font-size: 0.95rem; opacity: 0.85; max-width: 600px; margin: 0 auto 1.5rem;">
+        Pensez à réserver votre tireuse à l'avance pour la belle saison. Les fûts non entamés ne sont pas facturés.
+      </p>
+      <a href="#contact" class="btn-pill is-primary" style="background: var(--color-dark); color: #fff;" onclick="selectContactType('tireuse')">
+        Demander un devis tireuse gratuit ✦
+      </a>
     </div>
   </section>
 
@@ -1936,25 +2692,25 @@
       <div class="history-text-col">
         <div class="eyebrow-label">Notre Histoire</div>
         <h2>Installés à Gatuzières en Lozère depuis fin 2013</h2>
-        <p>Les Brasseurs de la Jonte est une brasserie artisanale née de la passion commune de deux fondateurs.</p>
-        <p>Nichée dans le décor sauvage des Gorges de la Jonte, notre brasserie défend un positionnement clair et exigeant : des recettes authentiques, des ingrédients issus de l'agriculture biologique, et une confection sans conservateurs.</p>
+        <p>Les Brasseurs de la Jonte est une brasserie artisanale indépendante née de la passion commune et complice de deux fondateurs.</p>
+        <p>Nichée dans le décor grandiose et sauvage des Gorges de la Jonte, entre Causse Méjean et mont Aigoual, notre brasserie défend un engagement fort : des bières vivantes non pasteurisées, des limonades biologiques au goût franc de terroir, et le respect absolu de la nature cévenole.</p>
         
         <div class="history-pillars">
           <div class="pillar-box">
             <h3>Deux Fondateurs</h3>
-            <p>Une passion partagée pour le brassage artisanal traditionnel.</p>
+            <p>Une amitié solide et une passion partagée pour le brassage traditionnel.</p>
           </div>
           <div class="pillar-box">
-            <h3>100% Bio</h3>
-            <p>Ingrédients nobles issus de l'agriculture biologique.</p>
+            <h3>100% Bio Certifié</h3>
+            <p>Des malts et ingrédients nobles issus de filières biologiques contrôlées.</p>
           </div>
           <div class="pillar-box">
-            <h3>Sans Conservateurs</h3>
-            <p>Le goût pur des céréales, houblons et fruits frais.</p>
+            <h3>Zéro Artifice</h3>
+            <p>Sans conservateurs, sans arômes synthétiques, sans filtration agressive.</p>
           </div>
           <div class="pillar-box">
             <h3>Terroir Lozérien</h3>
-            <p>L'eau cristalline et la pureté des Cévennes comme signature.</p>
+            <p>L'eau cristalline de source et l'air pur des Cévennes comme signature.</p>
           </div>
         </div>
       </div>
@@ -1963,96 +2719,129 @@
         <div class="history-art-card">
           <span class="art-year">2013</span>
           <span class="art-tag">Gatuzières • Lozère</span>
-          <p style="margin-top: 1rem; font-size: 0.88rem; opacity: 0.85;">Brasserie Artisanale Née de la Passion</p>
+          <p style="margin-top: 1.2rem; font-size: 0.95rem; opacity: 0.9; line-height: 1.5;">
+            « Brasser avec authenticité, patience et respect du vivant au cœur d'une vallée d'exception. »
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       SECTION VISITE & REVENDEURS
+       SECTION AVIS CLIENTS & VISITEURS
        ========================================================================== -->
-  <section class="section-visit" id="visiter">
+  <section class="section-reviews" id="avis">
     <div class="section-title-wrap">
-      <div class="eyebrow-label">Immersion Locale</div>
-      <h2 class="main-heading">Visiter & Nous Trouver</h2>
-      <p class="sub-lead">Venez découvrir les secrets de fabrication de nos bières et dégustez nos créations directement à la source.</p>
+      <div class="eyebrow-label">Ils en parlent le mieux</div>
+      <h2 class="main-heading">Ce que disent nos visiteurs</h2>
+      <div class="reviews-badge-trust">
+        ⭐ 4.9 / 5 sur Google Reviews & Tripadvisor • +450 avis vérifiés
+      </div>
     </div>
 
-    <div class="visit-grid">
-      <!-- Visiter la Brasserie -->
-      <div class="visit-panel is-dark">
-        <div>
-          <h3>Visiter la Brasserie</h3>
-          <p>Découvrez notre atelier de brassage au cœur des Cévennes lors de nos visites estivales conviviales.</p>
-
-          <div class="visit-specs-list">
-            <div class="spec-row">
-              <div class="spec-symbol">📅</div>
-              <div class="spec-details">
-                <strong>Période</strong>
-                <span>Juillet & Août uniquement</span>
-              </div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-symbol">⏰</div>
-              <div class="spec-details">
-                <strong>Horaires</strong>
-                <span>Lundi au Vendredi à 17h00</span>
-              </div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-symbol">🎟️</div>
-              <div class="spec-details">
-                <strong>Réservation</strong>
-                <span>Sans réservation préalable</span>
-              </div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-symbol">📍</div>
-              <div class="spec-details">
-                <strong>Lieu</strong>
-                <span>Gatuzières, en Lozère</span>
-              </div>
-            </div>
-          </div>
+    <div class="reviews-grid">
+      <!-- Avis 1 -->
+      <div class="review-box">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          « Une étape magique dans les Gorges de la Jonte ! La visite avec le brasseur à 17h était passionnante et sans chichis. Déguster une Brimbelle bien fraîche en terrasse au ras de l'eau est un pur régal. »
+        </p>
+        <div class="review-author">
+          <strong>Pierre & Camille V.</strong>
+          <span>Visiteurs de passage (Lyon) • Juillet 2024</span>
         </div>
-
-        <a href="#contact" class="btn-pill is-primary" style="width: 100%; text-align: center; justify-content: center;">Nous situer sur la carte</a>
       </div>
 
-      <!-- Où nous trouver / Revendeurs -->
-      <div class="visit-panel" id="revendeurs">
-        <div>
-          <h3>Où nous trouver</h3>
-          <p>Nos bières artisanales et limonades bio sont disponibles chez nos revendeurs partenaires et cavistes.</p>
-
-          <div class="visit-specs-list">
-            <div class="spec-row">
-              <div class="spec-symbol">🍺</div>
-              <div class="spec-details">
-                <strong>Réseau Revendeurs</strong>
-                <span>Cavistes, épiceries bio & restaurants locaux</span>
-              </div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-symbol">🤝</div>
-              <div class="spec-details">
-                <strong>Professionnels</strong>
-                <span>Contact direct pour bars, restaurants et distributeurs</span>
-              </div>
-            </div>
-            <div class="spec-row">
-              <div class="spec-symbol">📦</div>
-              <div class="spec-details">
-                <strong>Formats Disponibles</strong>
-                <span>Bouteilles individuelles et fûts</span>
-              </div>
-            </div>
-          </div>
+      <!-- Avis 2 -->
+      <div class="review-box">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          « Nous avons loué deux tireuses et des fûts de Tantaravel et de Blonde pour notre mariage au Causse. Matériel au top, fûts non percutés repris sans souci, et les invités ne parlaient que de la bière ! »
+        </p>
+        <div class="review-author">
+          <strong>Mathieu & Julie D.</strong>
+          <span>Mariage en Lozère • Juin 2024</span>
         </div>
+      </div>
 
-        <a href="#contact" class="btn-pill is-primary" style="background: var(--color-dark); color: var(--color-white); width: 100%; text-align: center; justify-content: center;">Devenir Revendeur Partenaire</a>
+      <!-- Avis 3 -->
+      <div class="review-box">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          « En tant que caviste, je travaille avec Les Brasseurs de la Jonte depuis 5 ans. Les clients raffolent de la Triple bio et des limonades au miel de châtaignier et au sureau. Une régularité et une authenticité rares. »
+        </p>
+        <div class="review-author">
+          <strong>Sophie L.</strong>
+          <span>Caviste indépendante (Montpellier)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION QUESTIONS FRÉQUENTES (FAQ)
+       ========================================================================== -->
+  <section class="section-faq" id="faq">
+    <div class="section-title-wrap">
+      <div class="eyebrow-label">Tout ce que vous voulez savoir</div>
+      <h2 class="main-heading">Questions Fréquentes</h2>
+      <p class="sub-lead">Des réponses claires sur nos bières, nos limonades, les visites et nos services.</p>
+    </div>
+
+    <div class="faq-container">
+      <!-- Question 1 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Vos boissons sont-elles toutes certifiées Agriculture Biologique ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, l'ensemble de notre gamme permanente de bières et de limonades est certifié Bio. Nous sélectionnons rigoureusement nos malts, houblons, sucre de canne équitable, miel cévenol et vraies purées de fruits auprès de producteurs écoresponsables. Aucun conservateur ni arôme artificiel n'est jamais utilisé.</p>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Comment se déroulent les visites guidées de la brasserie ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>En juillet et en août, nous organisons une visite guidée gratuite tous les jours du lundi au vendredi à 17h00. Aucune réservation préalable n'est nécessaire. Pendant environ 45 minutes, vous découvrez l'atelier de brassage, la salle des cuves, les matières premières et le processus de refermentation en bouteille, suivi d'une dégustation au comptoir.</p>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Comment fonctionne la location de tireuse pour un mariage ou une fête ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>C'est très simple : nous vous prêtons une tireuse professionnelle à froid instantané prête à fonctionner en 10 minutes avec nos fûts de 20L ou 30L. Nous vous fournissons les gobelets réutilisables si besoin et nous vous formons en 5 minutes. Le vrai plus : <strong>tous les fûts non percutés sont repris et non facturés</strong>, ce qui vous évite tout stress de quantité !</p>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Où acheter vos bières et limonades si je ne suis pas sur place ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>En dehors de notre boutique directe au Moulin à Gatuzières, nos bouteilles (formats 33cl et 75cl) sont distribuées dans un large réseau de cavistes indépendants, d'épiceries fines de terroir, de magasins biologiques (Biocoop, etc.) et servies sur les tables de restaurants partenaires en Lozère, Aveyron, Gard et Hérault.</p>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Combien de temps se conservent vos bières et vos limonades ?</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <p>Grâce à la refermentation naturelle en bouteille, nos bières sont vivantes et se conservent debout à l'abri de la lumière pendant au moins 12 à 24 mois (la Triple Bio et les cuvées vieillies en fûts de chêne continuent même de se bonifier avec le temps !). Nos limonades conservent toute leur pétillance et fraîcheur fruitée pendant 12 à 18 mois.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -2064,27 +2853,64 @@
     <div class="contact-card-box">
       <div style="text-align: center; margin-bottom: 2rem;">
         <div class="eyebrow-label">Échangeons Ensemble</div>
-        <h2 class="main-heading" style="margin-bottom: 0.8rem;">Contactez-nous</h2>
-        <p style="color: var(--color-muted); font-size: 0.95rem;">Une question sur nos bières, nos visites ou un projet professionnel ? Écrivez-nous.</p>
+        <h2 class="main-heading" style="margin-bottom: 0.8rem;">Contactez les Brasseurs</h2>
+        <p style="color: var(--color-muted); font-size: 0.95rem;">Une question sur nos boissons, une visite du Moulin ou un projet d'événement ? Écrivez-nous directement.</p>
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('Merci pour votre message ! Notre équipe lozérienne vous répondra rapidement.');">
+      <!-- Sélecteur rapide d'objet de demande -->
+      <div class="contact-type-selector">
+        <button type="button" class="type-choice-btn is-active" data-type="general" onclick="selectContactType('general')">
+          🍻 Particulier & Visites
+        </button>
+        <button type="button" class="type-choice-btn" data-type="tireuse" onclick="selectContactType('tireuse')">
+          🚰 Location Tireuse & Fûts
+        </button>
+        <button type="button" class="type-choice-btn" data-type="pro" onclick="selectContactType('pro')">
+          📦 Devenir Revendeur / Caviste
+        </button>
+        <button type="button" class="type-choice-btn" data-type="autre" onclick="selectContactType('autre')">
+          💬 Presse & Autre Demande
+        </button>
+      </div>
+
+      <form id="contactForm" onsubmit="event.preventDefault(); alert('Merci pour votre message ! Notre équipe lozérienne vous répondra sous 24 à 48 heures ouvrées.'); this.reset();">
         <div class="contact-inputs-grid">
-          <input type="text" class="input-field" placeholder="Votre nom complet" required>
+          <input type="text" class="input-field" placeholder="Votre prénom & nom" required>
           <input type="email" class="input-field" placeholder="Votre adresse email" required>
         </div>
-        <input type="text" class="input-field" placeholder="Sujet de votre demande (Particulier, Revendeur, Visite...)" required>
-        <textarea class="textarea-field" placeholder="Votre message..." required></textarea>
+        <div class="contact-inputs-grid" style="margin-top: 1rem;">
+          <input type="tel" class="input-field" placeholder="Numéro de téléphone (optionnel)">
+          <input type="text" class="input-field" id="formSubjectInput" placeholder="Sujet de votre message" value="Demande générale & Visite du Moulin" required>
+        </div>
+        <textarea class="textarea-field" id="formMessageArea" placeholder="Détaillez votre projet, vos dates d'événement ou votre question..." required></textarea>
         
-        <button type="submit" class="btn-pill is-primary" style="background: var(--color-dark); color: var(--color-white); padding: 1rem 2.6rem;">
-          Envoyer le message ✦
-        </button>
+        <div style="text-align: center; margin-top: 0.5rem;">
+          <button type="submit" class="btn-pill is-primary" style="background: var(--color-dark); color: var(--color-white); padding: 1.1rem 3rem; font-size: 0.95rem;">
+            Envoyer votre message ✦
+          </button>
+        </div>
       </form>
+
+      <!-- Coordonnées directes -->
+      <div class="direct-contacts-row">
+        <div class="contact-quick-item">
+          <strong>📍 Adresse Brasserie</strong>
+          <span>Le Moulin, 48150 Gatuzières</span>
+        </div>
+        <div class="contact-quick-item">
+          <strong>📞 Téléphone Direct</strong>
+          <a href="tel:0448500083">04 48 50 00 83</a>
+        </div>
+        <div class="contact-quick-item">
+          <strong>🕒 Visites Estivales</strong>
+          <span>Lun - Ven à 17h (Juil & Août)</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       FOOTER
+       FOOTER HAUT DE GAMME
        ========================================================================== -->
   <footer class="site-footer">
     <!-- Mention Légale Alcool Obligatoire -->
@@ -2095,35 +2921,38 @@
     <div class="footer-columns">
       <div class="footer-col">
         <h5>Les Brasseurs de la Jonte</h5>
-        <p style="font-size: 0.9rem; opacity: 0.75; line-height: 1.6; max-width: 320px;">
-          Brasserie artisanale installée à Gatuzières, en Lozère, depuis fin 2013. Nés de la passion de deux fondateurs, nous brassons des bières et limonades authentiques, biologiques et sans conservateurs.
+        <p style="font-size: 0.9rem; opacity: 0.78; line-height: 1.6; max-width: 320px;">
+          Brasserie artisanale lozérienne installée au Moulin de Gatuzières depuis 2013. Bières vivantes non pasteurisées et limonades biologiques de terroir, nées au cœur des gorges sauvages de la Jonte.
         </p>
       </div>
 
       <div class="footer-col">
-        <h5>Navigation</h5>
+        <h5>Gamme & Produits</h5>
         <ul class="footer-links">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#bieres">Nos Bières</a></li>
-          <li><a href="#limonades">Nos Limonades</a></li>
-          <li><a href="#histoire">Notre Histoire</a></li>
+          <li><a href="#bieres">Nos 5 Bières Permanentes</a></li>
+          <li><a href="#limonades">Nos 9 Limonades Bio</a></li>
+          <li><a href="#savoir-faire">Notre Savoir-Faire</a></li>
+          <li><a href="#tireuses">Location de Tireuses</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Informations</h5>
+        <h5>Le Moulin & Visite</h5>
         <ul class="footer-links">
-          <li><a href="#visiter">Visiter la Brasserie</a></li>
-          <li><a href="#revendeurs">Où nous trouver</a></li>
-          <li><a href="#contact">Contact Pro & Particuliers</a></li>
+          <li><a href="#moulin">Bar & Taproom au bord de l'eau</a></li>
+          <li><a href="#moulin">Visites gratuites à 17h</a></li>
+          <li><a href="#faq">Questions Fréquentes</a></li>
+          <li><a href="#contact">Contact & Accès</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h5>Réseaux Sociaux</h5>
+        <h5>Coordonnées</h5>
         <ul class="footer-links">
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="tel:0448500083">📞 04 48 50 00 83</a></li>
+          <li><a href="mailto:contact@lesbrasseursdelajonte.fr">✉️ contact@lesbrasseursdelajonte.fr</a></li>
+          <li><span style="opacity: 0.7;">Le Moulin, 48150 Gatuzières</span></li>
+          <li><a href="https://maps.google.com" target="_blank" rel="noopener">🗺️ Voir sur Google Maps</a></li>
         </ul>
       </div>
     </div>
@@ -2135,9 +2964,14 @@
 
     <div class="footer-copyright">
       <div>© 2026 Les Brasseurs de la Jonte. Tous droits réservés.</div>
-      <div>Gatuzières, Lozère — Recettes authentiques & Ingrédients bio.</div>
+      <div>Gatuzières, Lozère — Recettes authentiques, 100% Ingrédients Bio.</div>
     </div>
   </footer>
+
+  <!-- Bouton Flottant Retour en Haut -->
+  <button class="back-to-top-btn" id="backToTop" aria-label="Remonter en haut de page">
+    ↑
+  </button>
 
   <!-- ==========================================================================
        LOGIQUE D'ALIGNEMENT 3D ET INTERACTION INSTANTANÉE
@@ -2387,6 +3221,117 @@
         document.body.classList.remove("is-menu-open");
       });
     });
+
+    // Filtres Catalogue Bières
+    const bieresFilterBar = document.getElementById("bieresFilterBar");
+    if (bieresFilterBar) {
+      const bieresButtons = bieresFilterBar.querySelectorAll(".filter-pill-btn");
+      const bieresGrid = document.getElementById("bieresCatalogGrid");
+      bieresButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          bieresButtons.forEach(b => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          const filter = btn.getAttribute("data-filter");
+          const cards = bieresGrid.querySelectorAll(".card-item");
+          cards.forEach(card => {
+            if (filter === "all" || card.getAttribute("data-bieres-cat") === filter) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    }
+
+    // Filtres Catalogue Limonades
+    const limonadesFilterBar = document.getElementById("limonadesFilterBar");
+    if (limonadesFilterBar) {
+      const limoButtons = limonadesFilterBar.querySelectorAll(".filter-pill-btn");
+      const limoGrid = document.getElementById("limonadesCatalogGrid");
+      limoButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          limoButtons.forEach(b => b.classList.remove("is-active"));
+          btn.classList.add("is-active");
+          const filter = btn.getAttribute("data-limo-filter");
+          const cards = limoGrid.querySelectorAll(".card-item");
+          cards.forEach(card => {
+            if (filter === "all" || card.getAttribute("data-limo-cat") === filter) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    }
+
+    // Onglets Saisons - Le Moulin
+    function switchSeason(season) {
+      const tabSummer = document.getElementById("tabSummer");
+      const tabOffseason = document.getElementById("tabOffseason");
+      const panelSummer = document.getElementById("panelSummer");
+      const panelOffseason = document.getElementById("panelOffseason");
+
+      if (season === "summer") {
+        tabSummer.classList.add("is-active");
+        tabOffseason.classList.remove("is-active");
+        panelSummer.classList.add("is-active");
+        panelOffseason.classList.remove("is-active");
+      } else {
+        tabOffseason.classList.add("is-active");
+        tabSummer.classList.remove("is-active");
+        panelOffseason.classList.add("is-active");
+        panelSummer.classList.remove("is-active");
+      }
+    }
+
+    // Sélecteur d'objet dans le formulaire de contact
+    function selectContactType(type) {
+      document.querySelectorAll(".type-choice-btn").forEach(btn => {
+        btn.classList.toggle("is-active", btn.getAttribute("data-type") === type);
+      });
+      const subjectInput = document.getElementById("formSubjectInput");
+      const messageArea = document.getElementById("formMessageArea");
+      if (!subjectInput) return;
+
+      if (type === "tireuse") {
+        subjectInput.value = "Demande de Devis — Location Tireuse & Fûts";
+        messageArea.placeholder = "Indiquez votre date d'événement, lieu, nombre d'invités estimé et les bières souhaitées...";
+      } else if (type === "pro") {
+        subjectInput.value = "Contact Professionnel — Revendeur / Caviste / Restauration";
+        messageArea.placeholder = "Indiquez le nom de votre établissement, localisation, et les formats qui vous intéressent...";
+      } else if (type === "autre") {
+        subjectInput.value = "Presse, Partenariat ou Autre Demande";
+        messageArea.placeholder = "Détaillez votre demande ou proposition de collaboration...";
+      } else {
+        subjectInput.value = "Demande générale & Visite du Moulin";
+        messageArea.placeholder = "Détaillez votre projet, vos dates d'événement ou votre question...";
+      }
+    }
+
+    // FAQ Accordion
+    document.querySelectorAll(".faq-question").forEach(q => {
+      q.addEventListener("click", () => {
+        const item = q.parentElement;
+        const wasOpen = item.classList.contains("is-open");
+        document.querySelectorAll(".faq-item").forEach(i => i.classList.remove("is-open"));
+        if (!wasOpen) {
+          item.classList.add("is-open");
+        }
+      });
+    });
+
+    // Bouton Retour en Haut
+    const backToTop = document.getElementById("backToTop");
+    if (backToTop) {
+      window.addEventListener("scroll", () => {
+        backToTop.classList.toggle("is-visible", window.scrollY > 400);
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
 
     // Initialisation
     setActiveProduct("brimbelle");

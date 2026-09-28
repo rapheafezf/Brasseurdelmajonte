@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aperçu local — Les Brasseurs de la Jonte</title></head>
+<body>
+<!-- Aperçu local uniquement : reproduit l'enveloppe ajoutée à la publication autour de index.html -->
+<script>
+fetch('index.html').then(r=>r.text()).then(html=>{
+  const tpl=document.createElement('template'); tpl.innerHTML=html;
+  document.title='Les Brasseurs de la Jonte';
+  // rejoue les <script> (non exécutés via innerHTML)
+  const run=[];
+  tpl.content.querySelectorAll('script').forEach(s=>{run.push(s);s.remove();});
+  document.head.append(...tpl.content.querySelectorAll('title,meta,link,style'));
+  document.body.append(tpl.content);
+  run.forEach(o=>{const s=document.createElement('script');if(o.src)s.src=o.src;else s.textContent=o.textContent;document.body.appendChild(s);});
+});
+</script>
+</body>
+</html>

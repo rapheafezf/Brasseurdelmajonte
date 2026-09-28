@@ -1,0 +1,47 @@
+{
+ "pass": true,
+ "runs": [
+  {
+   "width": 1440,
+   "ok": true,
+   "errors": [],
+   "failed": [],
+   "scrollWidth": 1440,
+   "vw": 1440,
+   "broken": [],
+   "invisible": [],
+   "wide": [],
+   "small": [
+    "A.num 100x20 04 48 50 00 83"
+   ],
+   "badge": true,
+   "title": "Les Brasseurs de la Jonte",
+   "imgs": 114,
+   "beast": "Ratapenada",
+   "sheet": "Causse Noir"
+  },
+  {
+   "width": 390,
+   "ok": true,
+   "errors": [],
+   "failed": [],
+   "scrollWidth": 390,
+   "vw": 390,
+   "broken": [],
+   "invisible": [],
+   "wide": [],
+   "small": [
+    "A.num 100x20 04 48 50 00 83"
+   ],
+   "badge": true,
+   "title": "Les Brasseurs de la Jonte",
+   "imgs": 114,
+   "beast": "Ratapenada",
+   "sheet": "Causse Noir"
+  }
+ ],
+ "img": {
+  "files": 123,
+  "mb": 7.06
+ }
+}
